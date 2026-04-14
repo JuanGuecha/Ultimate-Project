@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - Ground
   - Platform
+  - Wall
+  - Saliente
+  - Enemy
+  - Placa
   layers:
   - Default
   - TransparentFX
@@ -12,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Ground
+  - Enemies
   - 
   - 
   - 
