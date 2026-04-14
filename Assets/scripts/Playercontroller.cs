@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class Playercontroller : MonoBehaviour
@@ -10,12 +11,22 @@ public class Playercontroller : MonoBehaviour
     bool isIgnoringCollision;
     GameObject currentPlatform;
     bool isGrounded;
-    void Start()
+    PhysicsMaterial2D physicsMaterial2D;
+    public PhysicsMaterial2D defaultMaterial;
+    public PhysicsMaterial2D frictionMaterial;
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerCollider = GetComponent<Collider2D>();
         isGrounded = true;
+        rb.sharedMaterial = defaultMaterial;
+
+    }
+    void Start()
+
+    {
+
 
     }
 
@@ -66,13 +77,30 @@ public class Playercontroller : MonoBehaviour
             currentPlatform = collision.gameObject;
 
         }
-        Physics2D.IgnoreCollision(playerCollider, currentPlatform.GetComponent<Collider2D>(), false);
+        if (collision.gameObject.CompareTag("Saliente"))
+        {
+            rb.sharedMaterial = frictionMaterial;
+            isGrounded = true;
+
+
+        }
+        if (currentPlatform != null)
+        {
+            Physics2D.IgnoreCollision(playerCollider, currentPlatform.GetComponent<Collider2D>(), false);
+        }
+
         isIgnoringCollision = false;
     }
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") ||
+        collision.gameObject.CompareTag("Platform"))
         {
+            isGrounded = false;
+        }
+        if (collision.gameObject.CompareTag("Saliente"))
+        {
+            rb.sharedMaterial = defaultMaterial;
             isGrounded = false;
         }
 
