@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Saliente
   - Enemy
+  - Placa
   layers:
   - Default
   - TransparentFX
