@@ -16,6 +16,7 @@ public class Playercontroller : MonoBehaviour
     PhysicsMaterial2D physicsMaterial2D;
     public PhysicsMaterial2D defaultMaterial;
     public PhysicsMaterial2D frictionMaterial;
+    SpriteRenderer spriteRenderer; 
 
     [Header("Animaciones")]
     Animator animator;
@@ -27,6 +28,7 @@ public class Playercontroller : MonoBehaviour
         isGrounded = true;
         rb.sharedMaterial = defaultMaterial;
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
     void Start()
@@ -42,6 +44,8 @@ public class Playercontroller : MonoBehaviour
         move();
         //Salto
         jump();
+        animator.SetBool("isGround", isGrounded);
+
     }
 
 
@@ -62,14 +66,25 @@ public class Playercontroller : MonoBehaviour
         {
             GetDownPlatform();
         }
+        if (moveVector.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
     }
     void jump()
     {
-        if (playerInput.actions["Jump"].WasPressedThisFrame() && isGrounded)
+        if (playerInput.actions["Jump"].WasPressedThisFrame())
         {
-            animator.SetBool("isGround", isGrounded);
-            animator.SetBool("Jump", playerInput.actions["Jump"].WasPressedThisFrame());
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpforce);
+            animator.SetTrigger("Jump");
+            if(isGrounded)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpforce);
+            }
+           
         }
 
     }
@@ -135,3 +150,4 @@ public class Playercontroller : MonoBehaviour
         isIgnoringCollision = true;
     }
 }
+
