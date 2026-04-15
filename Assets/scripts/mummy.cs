@@ -11,6 +11,9 @@ public class mummy : MonoBehaviour
     {
         renderer = GetComponentInChildren<Renderer>();
         agent = GetComponent<NavMeshAgent>();
+        agent.stoppingDistance = 5f;
+        agent.speed = 8f;
+        agent.acceleration = 30;
 
         // Busca automáticamente al player por tag
         GameObject player = GameObject.FindGameObjectWithTag("Player");
