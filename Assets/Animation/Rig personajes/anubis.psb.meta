@@ -600,9 +600,9 @@ ScriptedImporter:
     spriteBone:
     - name: Antebrazo L
       guid: 6ba5d2a6ef64d6041b0100b0cd573d61
-      position: {x: 238.18382, y: -0.00017250868, z: 0}
+      position: {x: 238.1837, y: -0.0001723142, z: 0}
       rotation: {x: 0, y: 0, z: 0.10364879, w: 0.994614}
-      length: 241.68768
+      length: 241.68771
       parentId: 1
       color:
         serializedVersion: 2
@@ -616,11 +616,11 @@ ScriptedImporter:
       color:
         serializedVersion: 2
         rgba: 4278255615
-    - name: Antebrazo L_16
+    - name: Mano L
       guid: 149d8b3144c96e54e899721c3d253f81
-      position: {x: 241.68788, y: 0.000017445751, z: 0}
+      position: {x: 241.688, y: 0.000047873546, z: 0}
       rotation: {x: 0, y: 0, z: 0.14513828, w: 0.98941135}
-      length: 80.90252
+      length: 80.90253
       parentId: 0
       color:
         serializedVersion: 2
@@ -1329,7 +1329,7 @@ ScriptedImporter:
       guid: 6ba5d2a6ef64d6041b0100b0cd573d61
       position: {x: 238.18379, y: -0.00018776747, z: 0}
       rotation: {x: 0, y: 0, z: 0.10364879, w: 0.994614}
-      length: 241.6877
+      length: 241.68776
       parentId: 0
       color:
         serializedVersion: 2
@@ -2732,7 +2732,7 @@ ScriptedImporter:
       guid: 93b3cc947b8e34944bbb017988be98e7
       position: {x: 721.66907, y: -94.54524, z: 0}
       rotation: {x: 0, y: 0, z: -0.9990368, w: 0.043881472}
-      length: 302.55524
+      length: 302.5553
       parentId: 1
       color:
         serializedVersion: 2
@@ -2759,7 +2759,7 @@ ScriptedImporter:
       guid: 592ac285d61dd6f40bf4fa2b5473e96d
       position: {x: 717.86774, y: 114.239655, z: 0}
       rotation: {x: 0, y: 0, z: 0.99954826, w: 0.03005405}
-      length: 279.32968
+      length: 279.32974
       parentId: 1
       color:
         serializedVersion: 2
@@ -3149,9 +3149,9 @@ ScriptedImporter:
     spriteBone:
     - name: antebrazo R
       guid: 2e8d14f54dc5cc14e91c95a25393aa5e
-      position: {x: 228.10562, y: 0.00037465728, z: 0}
+      position: {x: 228.10562, y: 0.00043569243, z: 0}
       rotation: {x: 0, y: 0, z: 0.74702543, w: 0.66479564}
-      length: 188.12552
+      length: 188.12558
       parentId: 1
       color:
         serializedVersion: 2
@@ -3167,7 +3167,7 @@ ScriptedImporter:
         rgba: 4294934528
     - name: Cetro
       guid: fe9cffba79cb4a54c8c40c2dc0cb92cd
-      position: {x: 188.1256, y: -0.00028771465, z: 0}
+      position: {x: 188.12566, y: -0.00030188612, z: 0}
       rotation: {x: 0, y: 0, z: 0.6536634, w: 0.7567854}
       length: 245.2062
       parentId: 0
@@ -4241,7 +4241,7 @@ ScriptedImporter:
     spriteBone:
     - name: ante pierna L
       guid: b1b9242a1f6f9b84489012e68dffa4a7
-      position: {x: 279.3297, y: 0.00004919077, z: 0}
+      position: {x: 279.32983, y: 0.00005449329, z: 0}
       rotation: {x: 0, y: 0, z: -0.020594072, w: 0.999788}
       length: 401.83707
       parentId: 1
@@ -4252,7 +4252,7 @@ ScriptedImporter:
       guid: 592ac285d61dd6f40bf4fa2b5473e96d
       position: {x: 717.8676, y: 114.23966, z: 0}
       rotation: {x: 0, y: 0, z: 0.9995483, w: 0.030054051}
-      length: 279.32968
+      length: 279.32974
       parentId: 2
       color:
         serializedVersion: 2
@@ -4710,7 +4710,7 @@ ScriptedImporter:
     spriteBone:
     - name: pie L
       guid: f13e9418fa3c5574fbb984b3c65afe9b
-      position: {x: 401.83704, y: -0.000532878, z: 0}
+      position: {x: 401.837, y: -0.00046883634, z: 0}
       rotation: {x: 0, y: 0, z: 0.6840314, w: 0.7294526}
       length: 98.15207
       parentId: 1
@@ -4719,7 +4719,7 @@ ScriptedImporter:
         rgba: 4278255615
     - name: ante pierna L
       guid: b1b9242a1f6f9b84489012e68dffa4a7
-      position: {x: 279.32993, y: 0.00004136709, z: 0}
+      position: {x: 279.33, y: 0.000044018347, z: 0}
       rotation: {x: 0, y: 0, z: -0.020594072, w: 0.999788}
       length: 401.83707
       parentId: 2
@@ -4730,7 +4730,7 @@ ScriptedImporter:
       guid: 592ac285d61dd6f40bf4fa2b5473e96d
       position: {x: 717.8678, y: 114.239655, z: 0}
       rotation: {x: 0, y: 0, z: 0.9995483, w: 0.030054051}
-      length: 279.32968
+      length: 279.32974
       parentId: 3
       color:
         serializedVersion: 2
@@ -5466,7 +5466,7 @@ ScriptedImporter:
     spriteBone:
     - name: ante pierna R
       guid: 21926c39f8e041446904fef8a2aa3b2a
-      position: {x: 302.5554, y: -0.000094662595, z: 0}
+      position: {x: 302.55545, y: -0.00010102652, z: 0}
       rotation: {x: 0, y: 0, z: -0.019804752, w: 0.9998039}
       length: 374.49225
       parentId: 1
@@ -5477,7 +5477,7 @@ ScriptedImporter:
       guid: 93b3cc947b8e34944bbb017988be98e7
       position: {x: 721.66907, y: -94.54524, z: 0}
       rotation: {x: 0, y: 0, z: -0.9990368, w: 0.043881472}
-      length: 302.55524
+      length: 302.5553
       parentId: 2
       color:
         serializedVersion: 2
@@ -6170,23 +6170,23 @@ ScriptedImporter:
       guid: 93b3cc947b8e34944bbb017988be98e7
       position: {x: 56.41925, y: 741.9413, z: 0}
       rotation: {x: 0, y: 0, z: -0.6692285, w: 0.7430568}
-      length: 302.5552
+      length: 302.55527
       parentId: -1
       color:
         serializedVersion: 2
         rgba: 4278255488
     - name: bone_11
       guid: b5b1b3b3355f620479138a0cce4c3952
-      position: {x: 374.49228, y: 0.0003143571, z: 0}
+      position: {x: 374.49228, y: 0.00037130897, z: 0}
       rotation: {x: 0, y: 0, z: 0.62418866, w: 0.78127366}
-      length: 108.11591
+      length: 108.115906
       parentId: 2
       color:
         serializedVersion: 2
         rgba: 4294934528
     - name: ante pierna R
       guid: 21926c39f8e041446904fef8a2aa3b2a
-      position: {x: 302.55527, y: -0.000008931036, z: 0}
+      position: {x: 302.55533, y: -0.000015294954, z: 0}
       rotation: {x: 0, y: 0, z: -0.019804753, w: 0.99980384}
       length: 374.4923
       parentId: 0
@@ -6808,7 +6808,7 @@ ScriptedImporter:
     spriteBone:
     - name: Cetro
       guid: fe9cffba79cb4a54c8c40c2dc0cb92cd
-      position: {x: 188.1257, y: -0.0000031327618, z: 0}
+      position: {x: 188.12576, y: -0.000017304204, z: 0}
       rotation: {x: 0, y: 0, z: 0.6536635, w: 0.7567854}
       length: 245.20624
       parentId: 1
@@ -6817,9 +6817,9 @@ ScriptedImporter:
         rgba: 4286578943
     - name: antebrazo R
       guid: 2e8d14f54dc5cc14e91c95a25393aa5e
-      position: {x: -116.607544, y: 984.88696, z: 0}
+      position: {x: -116.60748, y: 984.88696, z: 0}
       rotation: {x: 0, y: 0, z: -0.058144588, w: -0.99830824}
-      length: 188.12558
+      length: 188.12564
       parentId: -1
       color:
         serializedVersion: 2
@@ -7714,15 +7714,15 @@ ScriptedImporter:
     - name: pierna R
       guid: 93b3cc947b8e34944bbb017988be98e7
       position: {x: 721.669, y: -94.54524, z: 0}
-      rotation: {x: 0, y: -0, z: -0.9990368, w: 0.04388147}
-      length: 302.55518
+      rotation: {x: 0, y: -0, z: -0.9990368, w: 0.043881465}
+      length: 302.55524
       parentId: 0
       color:
         serializedVersion: 2
         rgba: 4278255488
     - name: ante pierna R
       guid: 21926c39f8e041446904fef8a2aa3b2a
-      position: {x: 302.55524, y: -0.00006492536, z: 0}
+      position: {x: 302.5553, y: -0.00007540972, z: 0}
       rotation: {x: 0, y: 0, z: -0.019804759, w: 0.9998039}
       length: 374.49225
       parentId: 2
@@ -7731,7 +7731,7 @@ ScriptedImporter:
         rgba: 4286643968
     - name: bone_11
       guid: b5b1b3b3355f620479138a0cce4c3952
-      position: {x: 374.49225, y: 0.00026246, z: 0}
+      position: {x: 374.49225, y: 0.00031708702, z: 0}
       rotation: {x: 0, y: 0, z: 0.62418866, w: 0.7812737}
       length: 108.11589
       parentId: 3
@@ -7742,14 +7742,14 @@ ScriptedImporter:
       guid: 592ac285d61dd6f40bf4fa2b5473e96d
       position: {x: 717.8677, y: 114.23966, z: 0}
       rotation: {x: 0, y: -0, z: 0.9995483, w: 0.030054055}
-      length: 279.32965
+      length: 279.3297
       parentId: 0
       color:
         serializedVersion: 2
         rgba: 4294901888
     - name: ante pierna L
       guid: b1b9242a1f6f9b84489012e68dffa4a7
-      position: {x: 279.32968, y: 0.000045173187, z: 0}
+      position: {x: 279.32974, y: 0.000047824444, z: 0}
       rotation: {x: 0, y: 0, z: -0.0205941, w: 0.9997879}
       length: 401.83707
       parentId: 5
@@ -7758,7 +7758,7 @@ ScriptedImporter:
         rgba: 4286578943
     - name: pie L
       guid: f13e9418fa3c5574fbb984b3c65afe9b
-      position: {x: 401.83707, y: -0.00048826967, z: 0}
+      position: {x: 401.83704, y: -0.000422293, z: 0}
       rotation: {x: 0, y: 0, z: 0.6840314, w: 0.7294526}
       length: 98.15206
       parentId: 6
@@ -7785,16 +7785,16 @@ ScriptedImporter:
         rgba: 4294934528
     - name: antebrazo R
       guid: 2e8d14f54dc5cc14e91c95a25393aa5e
-      position: {x: 228.10587, y: 0.0003121163, z: 0}
+      position: {x: 228.10587, y: 0.00037315142, z: 0}
       rotation: {x: 0, y: -0, z: 0.7470253, w: 0.6647956}
-      length: 188.12553
+      length: 188.1256
       parentId: 9
       color:
         serializedVersion: 2
         rgba: 4294901888
     - name: Cetro
       guid: fe9cffba79cb4a54c8c40c2dc0cb92cd
-      position: {x: 188.1256, y: -0.000014631533, z: 0}
+      position: {x: 188.12566, y: 0.000032232187, z: 0}
       rotation: {x: 0, y: 0, z: 0.65366346, w: 0.75678545}
       length: 245.2062
       parentId: 10
@@ -7813,16 +7813,16 @@ ScriptedImporter:
     - name: Antebrazo L
       guid: 6ba5d2a6ef64d6041b0100b0cd573d61
       position: {x: 238.18372, y: -0.000135375, z: 0}
-      rotation: {x: 0, y: 0, z: 0.103648834, w: 0.99461395}
-      length: 241.68764
+      rotation: {x: 0, y: 0, z: 0.10364883, w: 0.99461395}
+      length: 241.6877
       parentId: 12
       color:
         serializedVersion: 2
         rgba: 4278255360
-    - name: Antebrazo L_16
+    - name: Mano L
       guid: 149d8b3144c96e54e899721c3d253f81
-      position: {x: 241.68771, y: 0.000018938385, z: 0}
-      rotation: {x: 0, y: 0, z: 0.14513823, w: 0.9894114}
+      position: {x: 241.68776, y: 0.000064100364, z: 0}
+      rotation: {x: 0, y: 0, z: 0.14513831, w: 0.9894114}
       length: 80.902504
       parentId: 13
       color:
