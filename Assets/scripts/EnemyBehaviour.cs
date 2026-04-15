@@ -3,21 +3,22 @@ using UnityEngine;
 using UnityEngine.AI;
 public class EnemyBehaviour : MonoBehaviour
 {
-    // Transform player;
-    // Rigidbody2D rb;
-    // // Start is called once before the first execution of Update after the MonoBehaviour is created
-    // void Start()
-    // {
-    //     player = GameObject.Find("Player").transform;
-    //     rb = GetComponent<Rigidbody2D>();
-    // }
+    Transform player;
+    Rigidbody2D rb;
+   
+    void Start()
+    {
+         player = GameObject.Find("Player").transform;
+         rb = GetComponent<Rigidbody2D>();
+    }
 
-    // // Update is called once per frame
-    // void Update()
-    // {
-    //     Vector2 playerDirection = player.position - transform.position;
-    //     rb.linearVelocity = new Vector2(playerDirection.normalized.x * 5f, rb.linearVelocity.y);
-    // }
+    
+    void Update()
+    {
+         Vector2 playerDirection = player.position - transform.position;
+         rb.linearVelocity = new Vector2(playerDirection.normalized.x * 5f, rb.linearVelocity.y);
+    }
+    /*
     private Transform target;
     private NavMeshAgent agent;
     public Material momifiedMaterial;
@@ -57,6 +58,7 @@ public class EnemyBehaviour : MonoBehaviour
             agent.SetDestination(target.position);
         }
     }
+    */
 
 
 }
