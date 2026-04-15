@@ -1,4 +1,6 @@
+using System;
 using System.Text.RegularExpressions;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class Playercontroller : MonoBehaviour
@@ -14,6 +16,9 @@ public class Playercontroller : MonoBehaviour
     PhysicsMaterial2D physicsMaterial2D;
     public PhysicsMaterial2D defaultMaterial;
     public PhysicsMaterial2D frictionMaterial;
+
+    [Header("Animaciones")]
+    Animator animator;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,6 +26,7 @@ public class Playercontroller : MonoBehaviour
         playerCollider = GetComponent<Collider2D>();
         isGrounded = true;
         rb.sharedMaterial = defaultMaterial;
+        animator = GetComponent<Animator>();
 
     }
     void Start()
@@ -44,11 +50,12 @@ public class Playercontroller : MonoBehaviour
         Vector2 moveVector = playerInput.actions["move"].ReadValue<Vector2>();
         if (playerInput.actions["move"].IsPressed())
         {
-
+            animator.SetFloat("Horizontal", Math.Abs(moveVector.x));
             rb.linearVelocity = new Vector2(moveVector.x * movespeed, rb.linearVelocity.y);
         }
         else
         {
+            animator.SetFloat("Horizontal", 0);
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
         if (moveVector.y < -0.5f && currentPlatform != null)//presionar hacia abajo para bajar de la plataforma
@@ -60,8 +67,11 @@ public class Playercontroller : MonoBehaviour
     {
         if (playerInput.actions["Jump"].WasPressedThisFrame() && isGrounded)
         {
+            animator.SetBool("isGround", isGrounded);
+            animator.SetBool("Jump", playerInput.actions["Jump"].WasPressedThisFrame());
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpforce);
         }
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
