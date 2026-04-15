@@ -8,7 +8,7 @@ public class PlacaTrampa : MonoBehaviour
         trampa.SetActive(false);
     }
 
-    void OncollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {

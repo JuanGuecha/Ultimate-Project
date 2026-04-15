@@ -51,7 +51,7 @@ public class Playercontroller : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
-        if (moveVector.y < -0.5f)//presionar hacia abajo para bajar de la plataforma
+        if (moveVector.y < -0.5f && currentPlatform != null)//presionar hacia abajo para bajar de la plataforma
         {
             GetDownPlatform();
         }
