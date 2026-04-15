@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 8ac5d74b9ae1b1f4883857bfe364c451
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4112013749180540222
+    second: anubi ssprite_Left_0
+  - first:
+      213: 2928169027015560428
+    second: anubi ssprite_Left_1
+  - first:
+      213: -218016171152089417
+    second: anubi ssprite_Left_2
+  - first:
+      213: 423235787840969617
+    second: anubi ssprite_Left_3
+  - first:
+      213: 2469954877133371290
+    second: anubi ssprite_Left_4
+  - first:
+      213: -8122035094381146504
+    second: anubi ssprite_Left_5
+  - first:
+      213: 3026068765575960488
+    second: anubi ssprite_Left_6
+  - first:
+      213: -1716994456816115879
+    second: anubi ssprite_Left_7
+  - first:
+      213: -4554576917547074134
+    second: anubi ssprite_Left_8
+  - first:
+      213: 8222166486675862940
+    second: anubi ssprite_Left_9
+  - first:
+      213: -7588678988145359239
+    second: anubi ssprite_Left_10
+  - first:
+      213: 3404044259210898099
+    second: anubi ssprite_Left_11
+  - first:
+      213: -1962713189292807383
+    second: anubi ssprite_Left_12
+  - first:
+      213: -7794238668366832562
+    second: anubi ssprite_Left_13
+  - first:
+      213: 500098750469869064
+    second: anubi ssprite_Left_14
+  - first:
+      213: -3478285777292064454
+    second: anubi ssprite_Left_15
+  - first:
+      213: 8069960745960923403
+    second: anubi ssprite_Left_16
+  - first:
+      213: 7375055797108659716
+    second: anubi ssprite_Left_17
+  - first:
+      213: -3063068379102931753
+    second: anubi ssprite_Left_18
+  - first:
+      213: -5663205585056228298
+    second: anubi ssprite_Left_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: anubi ssprite_Left_0
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 1309
+        width: 337
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e35ad6fe7bec01930800000000000000
+      internalID: 4112013749180540222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_1
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 1297
+        width: 306
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cec40994732f2a820800000000000000
+      internalID: 2928169027015560428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_2
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 1318
+        width: 319
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7be503b827379fcf0800000000000000
+      internalID: -218016171152089417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_3
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 1293
+        width: 215
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b5e76e4b2afd500800000000000000
+      internalID: 423235787840969617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_4
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 1307
+        width: 341
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9737c6dfda074220800000000000000
+      internalID: 2469954877133371290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_5
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 889
+        width: 337
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87ec7223d1cb84f80800000000000000
+      internalID: -8122035094381146504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_6
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 883
+        width: 292
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a75f0e6281cef920800000000000000
+      internalID: 3026068765575960488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_7
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 884
+        width: 289
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95f192873a20c28e0800000000000000
+      internalID: -1716994456816115879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_8
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 878
+        width: 292
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aadb967bc64eac0c0800000000000000
+      internalID: -4554576917547074134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_9
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 878
+        width: 337
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c95bf625bd00b1270800000000000000
+      internalID: 8222166486675862940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_10
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 476
+        width: 338
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9760025baa89fa690800000000000000
+      internalID: -7588678988145359239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_11
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 470
+        width: 334
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ba29f5e7389d3f20800000000000000
+      internalID: 3404044259210898099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_12
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 462
+        width: 329
+        height: 341
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92b6a34d0ca03c4e0800000000000000
+      internalID: -1962713189292807383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_13
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 464
+        width: 334
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4c916d0a3d45d390800000000000000
+      internalID: -7794238668366832562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_14
+      rect:
+        serializedVersion: 2
+        x: 1729
+        y: 465
+        width: 338
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e8f56f925b0f600800000000000000
+      internalID: 500098750469869064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_15
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 42
+        width: 335
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a398639a385aabfc0800000000000000
+      internalID: -3478285777292064454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_16
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 44
+        width: 334
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b01e85eba824eff60800000000000000
+      internalID: 8069960745960923403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_17
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 49
+        width: 293
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 406d8593c26795660800000000000000
+      internalID: 7375055797108659716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_18
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 45
+        width: 301
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d496dcb98bcd75d0800000000000000
+      internalID: -3063068379102931753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubi ssprite_Left_19
+      rect:
+        serializedVersion: 2
+        x: 1734
+        y: 42
+        width: 334
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63c17bc76804861b0800000000000000
+      internalID: -5663205585056228298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      anubi ssprite_Left_0: 4112013749180540222
+      anubi ssprite_Left_1: 2928169027015560428
+      anubi ssprite_Left_10: -7588678988145359239
+      anubi ssprite_Left_11: 3404044259210898099
+      anubi ssprite_Left_12: -1962713189292807383
+      anubi ssprite_Left_13: -7794238668366832562
+      anubi ssprite_Left_14: 500098750469869064
+      anubi ssprite_Left_15: -3478285777292064454
+      anubi ssprite_Left_16: 8069960745960923403
+      anubi ssprite_Left_17: 7375055797108659716
+      anubi ssprite_Left_18: -3063068379102931753
+      anubi ssprite_Left_19: -5663205585056228298
+      anubi ssprite_Left_2: -218016171152089417
+      anubi ssprite_Left_3: 423235787840969617
+      anubi ssprite_Left_4: 2469954877133371290
+      anubi ssprite_Left_5: -8122035094381146504
+      anubi ssprite_Left_6: 3026068765575960488
+      anubi ssprite_Left_7: -1716994456816115879
+      anubi ssprite_Left_8: -4554576917547074134
+      anubi ssprite_Left_9: 8222166486675862940
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
