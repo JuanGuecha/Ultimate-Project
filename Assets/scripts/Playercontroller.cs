@@ -75,6 +75,8 @@ public class Playercontroller : MonoBehaviour
         {
             isGrounded = true;
             currentPlatform = collision.gameObject;
+            transform.SetParent(collision.transform); // Esto se utiliza para que el jugador pueda moverse en las plataformas móviles sin problemas, 
+            // ya que el jugador se convierte en hijo de la plataforma y se mueve junto con ella.
 
         }
         if (collision.gameObject.CompareTag("Saliente"))
@@ -97,6 +99,7 @@ public class Playercontroller : MonoBehaviour
         collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = false;
+            transform.SetParent(null); //Cuando deja de estar en la plataforma, se establece el padre del jugador a null para que ya no siga el movimiento de la plataforma.
         }
         if (collision.gameObject.CompareTag("Saliente"))
         {
