@@ -1,0 +1,92 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "Param",
+			"GroupId": "",
+			"Name": "brazo L"
+		},
+		{
+			"Id": "Param2",
+			"GroupId": "",
+			"Name": "brazo R"
+		},
+		{
+			"Id": "Param3",
+			"GroupId": "",
+			"Name": "amtebrazo L"
+		},
+		{
+			"Id": "Param4",
+			"GroupId": "",
+			"Name": "amtebrazo R"
+		},
+		{
+			"Id": "Param5",
+			"GroupId": "",
+			"Name": "muslo L"
+		},
+		{
+			"Id": "Param6",
+			"GroupId": "",
+			"Name": "muslo R"
+		},
+		{
+			"Id": "Param16",
+			"GroupId": "",
+			"Name": "pies L"
+		},
+		{
+			"Id": "Param17",
+			"GroupId": "",
+			"Name": "pies R"
+		},
+		{
+			"Id": "Param7",
+			"GroupId": "",
+			"Name": "pierna L"
+		},
+		{
+			"Id": "Param8",
+			"GroupId": "",
+			"Name": "pierna R"
+		},
+		{
+			"Id": "Param9",
+			"GroupId": "",
+			"Name": "cetro"
+		},
+		{
+			"Id": "Param10",
+			"GroupId": "",
+			"Name": "cabeza"
+		},
+		{
+			"Id": "Param11",
+			"GroupId": "",
+			"Name": "Pecho"
+		},
+		{
+			"Id": "Param12",
+			"GroupId": "",
+			"Name": "cintura"
+		},
+		{
+			"Id": "Param15",
+			"GroupId": "",
+			"Name": "sentadilla"
+		},
+		{
+			"Id": "Param13",
+			"GroupId": "",
+			"Name": "movimiento Y"
+		},
+		{
+			"Id": "Param14",
+			"GroupId": "",
+			"Name": "respirar"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": []
+}
