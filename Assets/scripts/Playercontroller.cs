@@ -12,11 +12,11 @@ public class Playercontroller : MonoBehaviour
     public float jumpforce;
     bool isIgnoringCollision;
     GameObject currentPlatform;
-    bool isGrounded;
+    public bool isGrounded;
     PhysicsMaterial2D physicsMaterial2D;
     public PhysicsMaterial2D defaultMaterial;
     public PhysicsMaterial2D frictionMaterial;
-    SpriteRenderer spriteRenderer; 
+    SpriteRenderer spriteRenderer;
 
     [Header("Animaciones")]
     Animator animator;
@@ -67,24 +67,24 @@ public class Playercontroller : MonoBehaviour
             GetDownPlatform();
         }
         if (moveVector.x < 0)
-            {
-                spriteRenderer.flipX = true;
-            }
-            else
-            {
-                spriteRenderer.flipX = false;
-            }
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
     }
     void jump()
     {
         if (playerInput.actions["Jump"].WasPressedThisFrame())
         {
             animator.SetTrigger("Jump");
-            if(isGrounded)
+            if (isGrounded)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpforce);
             }
-           
+
         }
 
     }
@@ -96,7 +96,7 @@ public class Playercontroller : MonoBehaviour
         {
             isGrounded = true;
         }
-        if (collision.gameObject.CompareTag("Platform") && !isIgnoringCollision)
+        if (collision.gameObject.CompareTag("MovingPlatform") && !isIgnoringCollision)
         {
             isGrounded = true;
             currentPlatform = collision.gameObject;
@@ -139,7 +139,10 @@ public class Playercontroller : MonoBehaviour
         {
             isGrounded = true;
             currentPlatform = collision.gameObject;
-
+        }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
         }
     }
 

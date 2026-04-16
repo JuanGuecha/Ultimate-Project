@@ -10,6 +10,7 @@ TagManager:
   - Saliente
   - Enemy
   - Placa
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX
