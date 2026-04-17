@@ -7,7 +7,22 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Juan.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    guid: fa7f9c2192888ef45886d9eb12aafb98
+  - enabled: 1
+    path: Assets/Scenes/ScenesManager/Zone_1.unity
+    guid: 5becf22c04d7a9d4b8b160a129f6fcbd
+  - enabled: 1
+    path: Assets/Scenes/ScenesManager/Zone_2.unity
+    guid: a0aabe7310022f04081ac84572be7ce9
+  - enabled: 1
+    path: Assets/Scenes/ScenesManager/Zone_3.unity
+    guid: 1165cc10227d3b5478067a5fa9fabf0a
+  - enabled: 1
+    path: Assets/Scenes/ScenesManager/Zone_4.unity
+    guid: ee802131e3499984ab003c33e2b523af
+  - enabled: 1
+    path: Assets/Scenes/ScenesManager/Zone_5.unity
+    guid: 40412a78db8d3b2468851516903b22e5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

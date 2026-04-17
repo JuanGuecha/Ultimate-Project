@@ -10,6 +10,7 @@ TagManager:
   - Saliente
   - Enemy
   - Placa
+  - Zona2
   layers:
   - Default
   - TransparentFX
@@ -56,11 +57,14 @@ TagManager:
   - name: Tilemap Details
     uniqueID: 1520984173
     locked: 0
+  - name: Tilemap Deco
+    uniqueID: 1996411853
+    locked: 0
   - name: Player
     uniqueID: 1389083435
     locked: 0
-  - name: Tilemap Deco
-    uniqueID: 1996411853
+  - name: Ground
+    uniqueID: 2761602431
     locked: 0
   m_RenderingLayers:
   - Default
