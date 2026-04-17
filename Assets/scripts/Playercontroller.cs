@@ -16,6 +16,7 @@ public class Playercontroller : MonoBehaviour
     PhysicsMaterial2D physicsMaterial2D;
     public PhysicsMaterial2D defaultMaterial;
     public PhysicsMaterial2D frictionMaterial;
+    SpriteRenderer spriteRenderer; 
 
     [Header("Animaciones")]
     Animator animator;
@@ -27,6 +28,7 @@ public class Playercontroller : MonoBehaviour
         isGrounded = true;
         rb.sharedMaterial = defaultMaterial;
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
     void Start()
@@ -42,6 +44,8 @@ public class Playercontroller : MonoBehaviour
         move();
         //Salto
         jump();
+        animator.SetBool("isGround", isGrounded);
+
     }
 
 
@@ -58,18 +62,29 @@ public class Playercontroller : MonoBehaviour
             animator.SetFloat("Horizontal", 0);
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
-        if (moveVector.y < -0.5f)//presionar hacia abajo para bajar de la plataforma
+        if (moveVector.y < -0.5f && currentPlatform != null)//presionar hacia abajo para bajar de la plataforma
         {
             GetDownPlatform();
         }
+        if (moveVector.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
     }
     void jump()
     {
-        if (playerInput.actions["Jump"].WasPressedThisFrame() && isGrounded)
+        if (playerInput.actions["Jump"].WasPressedThisFrame())
         {
-            animator.SetBool("isGround", isGrounded);
-            animator.SetBool("Jump", playerInput.actions["Jump"].WasPressedThisFrame());
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpforce);
+            animator.SetTrigger("Jump");
+            if(isGrounded)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpforce);
+            }
+           
         }
 
     }
@@ -85,6 +100,8 @@ public class Playercontroller : MonoBehaviour
         {
             isGrounded = true;
             currentPlatform = collision.gameObject;
+            transform.SetParent(collision.transform); // Esto se utiliza para que el jugador pueda moverse en las plataformas móviles sin problemas, 
+            // ya que el jugador se convierte en hijo de la plataforma y se mueve junto con ella.
 
         }
         if (collision.gameObject.CompareTag("Saliente"))
@@ -107,6 +124,7 @@ public class Playercontroller : MonoBehaviour
         collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = false;
+            transform.SetParent(null); //Cuando deja de estar en la plataforma, se establece el padre del jugador a null para que ya no siga el movimiento de la plataforma.
         }
         if (collision.gameObject.CompareTag("Saliente"))
         {
@@ -132,3 +150,4 @@ public class Playercontroller : MonoBehaviour
         isIgnoringCollision = true;
     }
 }
+

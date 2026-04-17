@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -52,8 +51,10 @@ public class ShootRay : MonoBehaviour
             Debug.Log("raycasthit");
             EnemyBehaviour enemigo = hit.collider.GetComponent<EnemyBehaviour>();//comportamiento noraml
             mummy momificado = hit.collider.GetComponent<mummy>();//script momificado
+            Rigidbody2D enemyRb = hit.collider.GetComponent<Rigidbody2D>();
             enemigo.enabled = false;
             momificado.enabled = true;
+            enemyRb.simulated = false;// desactiva el simulated para que de la sensacion de flotar hacia el jugador
         }
         else if (hit.collider != null)
         {

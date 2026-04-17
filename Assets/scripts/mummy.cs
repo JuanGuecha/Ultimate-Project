@@ -4,13 +4,18 @@ public class mummy : MonoBehaviour
 {
     private Transform target;
     private NavMeshAgent agent;
-    public Material momifiedMaterial;
-    private Renderer renderer;
+    private SpriteRenderer spriteRenderer;
+
+    public Sprite mummySprite; // Asigna el sprite de la momia en el inspector
+
 
     void Start()
     {
-        renderer = GetComponentInChildren<Renderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         agent = GetComponent<NavMeshAgent>();
+        agent.stoppingDistance = 5f;
+        agent.speed = 8f;
+        agent.acceleration = 30;
 
         // Busca automáticamente al player por tag
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -18,7 +23,7 @@ public class mummy : MonoBehaviour
         if (player != null)
         {
             target = player.transform;
-            renderer.material = momifiedMaterial;
+            spriteRenderer.sprite = mummySprite;
         }
         else
         {
