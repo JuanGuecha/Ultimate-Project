@@ -11,6 +11,9 @@ TagManager:
   - Enemy
   - Placa
   - Zona2
+  - Zona3
+  - Zona4
+  - Zona5
   layers:
   - Default
   - TransparentFX
