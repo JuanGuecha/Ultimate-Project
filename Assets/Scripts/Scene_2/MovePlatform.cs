@@ -46,19 +46,4 @@ public class MovePlatform : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].position, speed * Time.fixedDeltaTime);
     }
 
-    private void OnColliderEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.transform.SetParent(this.transform);
-        }   
-    }
-
-    private void OnColliderExit2D(Collider2D other) 
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.transform.SetParent(null);
-        }   
-    }
 }

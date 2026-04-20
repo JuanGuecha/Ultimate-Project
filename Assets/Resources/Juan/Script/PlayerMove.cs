@@ -1,113 +1,158 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.InputSystem; // Necesario para el nuevo Input System
 
-/// <summary>
-/// Sistema de movimiento Hollow Knight - Metroidvania 2D
-/// Sencillo, completo y compatible con TilemapCollider
-/// </summary>
-public class PlayerMove : MonoBehaviour
+
+public class PlayerMovement : MonoBehaviour
 {
-    [Header("Componentes")]
-    private PlayerInput _playerInput;
-    private Rigidbody2D _rb;
-    private BoxCollider2D _collider;
     
-    [Header("Movimiento")]
-    [SerializeField] private float _maxSpeed = 6f;
-    [SerializeField] private float _acceleration = 30f;
-    [SerializeField] private float _friction = 25f;
+    // Movimiento base y salto con buffer.
+    [Header("Configuración de Movimiento")]
+    [SerializeField] private float speed = 10f;
+    [SerializeField] private float jumpPower = 16f;
+    [SerializeField] private float jumpBufferTime = 0.15f;
     
-    [Header("Salto")]
-    [SerializeField] private float _jumpForce = 10f;
-    [SerializeField] private int _coyoteFrames = 6;
-    
-    [Header("Física")]
-    [SerializeField] private float _fallingGravity = 2f;
-    
-    // Estado
-    private float _velocityX;
-    private int _coyoteCounter;
-    private bool _wasJumping;
-    
-    void Start()
+    // Detección de suelo con BoxCast.
+    [Header("Detección de Colisiones")]
+    [Tooltip("Puedes seleccionar una o varias capas para detección de suelo.")]
+    [SerializeField] private LayerMask groundLayers;
+    [SerializeField] private float detectionDistance = 0.1f;
+
+    // Gizmo para depurar el ground check.
+    [Header("Gizmo Ground Check")]
+    [SerializeField] private Vector2 groundCheckSize = new Vector2(1f, 0.2f);
+    [SerializeField] private Vector2 groundCheckOffset = new Vector2(0f, -0.6f);
+    [SerializeField] private Color groundCheckColor = Color.yellow;
+
+    // Soporte para plataformas.
+    [Header("Plataformas")]
+    [SerializeField] private string movingPlatformTag = "MovilPlatform";
+    [SerializeField] private string solidPlatformTag = "SolidPlatform";
+
+    // Materiales opcionales por si luego se reactiva fricción especial.
+    /*
+    [Header("Materiales de Friccion")]
+    [SerializeField] private PhysicsMaterial2D defaultMaterial;
+    [SerializeField] private PhysicsMaterial2D frictionMaterial;
+    */
+
+    // Referencias cacheadas.
+    private Rigidbody2D body;
+    private Animator anim;
+    private BoxCollider2D boxCollider;
+    private SpriteRenderer spriteRenderer;
+
+    // Estado de movimiento y plataforma actual.
+    private float horizontalInput;
+    private float verticalInput;
+    private float jumpBufferCounter;
+    private Transform currentMovingPlatform;
+
+    // Acciones del Input System.
+    private InputAction jumpAction;
+    private PlayerInput playerInput;
+
+    private void Awake()
     {
-        _playerInput = GetComponent<PlayerInput>();
-        _rb = GetComponent<Rigidbody2D>();
-        _collider = GetComponent<BoxCollider2D>();
-        
-        if (!_playerInput) Debug.LogWarning("[PlayerMove] Falta PlayerInput", this);
-        if (!_rb) Debug.LogWarning("[PlayerMove] Falta Rigidbody2D", this);
-        if (!_collider) Debug.LogWarning("[PlayerMove] Falta BoxCollider2D", this);
+        // Cache inicial de componentes y acciones.
+        body = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        playerInput = GetComponent<PlayerInput>();
+        jumpAction = playerInput.actions["Jump"];
+
     }
-    
-    void Update()
+
+    private void Update()
     {
-        if (!_playerInput || !_rb) return;
-        
-        // Leer input
-        float inputX = _playerInput.actions["Move"].ReadValue<Vector2>().x;
-        bool jumpPressed = _playerInput.actions["Jump"].IsPressed();
-        
-        // Detectar suelo
-        bool isGrounded = IsGrounded();
-        
-        // Coyote time
-        if (isGrounded)
-            _coyoteCounter = _coyoteFrames;
-        else
-            _coyoteCounter--;
-        
-        // Movimiento horizontal suave
-        if (inputX != 0)
-            _velocityX = Mathf.Lerp(_velocityX, inputX * _maxSpeed, Time.deltaTime * _acceleration);
-        else
-            _velocityX = Mathf.Lerp(_velocityX, 0, Time.deltaTime * _friction);
-        
-        // Salto (presiona = salta, suelta = cae)
-        if (jumpPressed && !_wasJumping && _coyoteCounter > 0)
+        // Lee el input de movimiento.
+        Vector2 moveInput = playerInput.actions["Move"].ReadValue<Vector2>();
+        horizontalInput = moveInput.x;
+        verticalInput = moveInput.y;
+
+        // Voltea el sprite sin alterar la escala.
+        if (horizontalInput > 0.01f)
+            spriteRenderer.flipX = false;
+        else if (horizontalInput < -0.01f)
+            spriteRenderer.flipX = true;
+
+        // Jump buffer para hacer el salto más responsivo.
+        if (jumpAction != null && jumpAction.WasPressedThisFrame())
         {
-            _rb.linearVelocity = new Vector2(_velocityX, _jumpForce);
-            _wasJumping = true;
+            jumpBufferCounter = jumpBufferTime;
         }
-        
-        if (!jumpPressed)
-            _wasJumping = false;
-        
-        // Aplicar velocidad X
-        _rb.linearVelocity = new Vector2(_velocityX, _rb.linearVelocity.y);
-    }
-    
-    void FixedUpdate()
-    {
-        if (!_rb) return;
-        
-        // Gravedad variable: cae más rápido que sube
-        if (_rb.linearVelocity.y < 0)
-            _rb.gravityScale = _fallingGravity;
         else
-            _rb.gravityScale = 1f;
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
+        // Aplica el movimiento horizontal.
+        body.linearVelocity = new Vector2(horizontalInput * speed, body.linearVelocity.y);
+
+        // Ejecuta el salto cuando el buffer y el suelo coinciden.
+        if (jumpBufferCounter > 0f && IsGrounded())
+        {
+            Jump();
+        }
     }
-    
-    /// <summary>
-    /// Detecta si está tocando suelo (funciona con TilemapCollider)
-    /// </summary>
+
+    private void Jump()
+    {
+        if (IsGrounded())
+        {
+            transform.SetParent(null);
+            currentMovingPlatform = null;
+            body.linearVelocity = new Vector2(body.linearVelocity.x, jumpPower);
+            anim.SetTrigger("jump");
+            jumpBufferCounter = 0f;
+        }
+    }
+
+    // Comprueba suelo con un BoxCast ajustado al collider.
     private bool IsGrounded()
     {
-        if (!_collider) return false;
-        
-        Vector2 checkPos = (Vector2)transform.position + _collider.offset + 
-                          Vector2.down * (_collider.size.y * 0.5f + 0.05f);
-        
-        // OverlapBox debajo del player - detecta TODO
-        Collider2D[] hits = Physics2D.OverlapBoxAll(checkPos, 
-                                                    new Vector2(_collider.size.x * 0.9f, 0.1f), 0);
-        
-        foreach (Collider2D hit in hits)
+        Vector2 boxCenter = (Vector2)boxCollider.bounds.center + groundCheckOffset;
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCenter, groundCheckSize, 0, Vector2.down, detectionDistance, groundLayers);
+        return raycastHit.collider != null;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Plataforma móvil: enparentar solo si contacto desde arriba.
+        if (collision.gameObject.CompareTag(movingPlatformTag) && collision.GetContact(0).normal.y > 0.5f)
         {
-            if (hit.gameObject != gameObject)
-                return true;
+            currentMovingPlatform = collision.transform;
+            transform.SetParent(currentMovingPlatform);
         }
-        
-        return false;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        // Soltar plataforma móvil.
+        if (collision.transform == currentMovingPlatform)
+        {
+            transform.SetParent(null);
+            currentMovingPlatform = null;
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // Dibuja el volumen del ground check en Scene.
+        BoxCollider2D selectedBoxCollider = GetComponent<BoxCollider2D>();
+
+        if (selectedBoxCollider == null)
+        {
+            return;
+        }
+
+        Gizmos.color = groundCheckColor;
+
+        Vector3 boxCenter = selectedBoxCollider.bounds.center + (Vector3)groundCheckOffset;
+        Vector3 castEndCenter = boxCenter + Vector3.down * detectionDistance;
+        Gizmos.DrawWireCube(castEndCenter, groundCheckSize);
     }
 }
+
+
+

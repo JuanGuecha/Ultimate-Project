@@ -16,13 +16,13 @@ TagManager:
   - Zona5
   - Door_1
   - Sensor_1
-  - Door_2
-  - Sensor_2
+  - Bat
+  - MovilPlatform
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Platfoms
   - Water
   - UI
   - Ground
