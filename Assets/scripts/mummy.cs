@@ -24,6 +24,7 @@ public class mummy : MonoBehaviour
         // Busca automáticamente al player por tag
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
+
         if (player != null)
         {
             target = player.transform;

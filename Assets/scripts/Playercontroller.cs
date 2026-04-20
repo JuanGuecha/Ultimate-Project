@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class Playercontroller : MonoBehaviour
     PhysicsMaterial2D physicsMaterial2D;
     public PhysicsMaterial2D defaultMaterial;
     public PhysicsMaterial2D frictionMaterial;
+    public GameObject attackpoint;
     SpriteRenderer spriteRenderer;
 
     [Header("Animaciones")]
@@ -45,6 +47,12 @@ public class Playercontroller : MonoBehaviour
         //Salto
         jump();
         animator.SetBool("isGround", isGrounded);
+        //Ataque
+        if (playerInput.actions["Attack"].WasPressedThisFrame())
+        {
+            StartCoroutine(MeleeAttack());
+        }
+
 
     }
 
@@ -152,5 +160,13 @@ public class Playercontroller : MonoBehaviour
         Physics2D.IgnoreCollision(playerCollider, currentPlatform.GetComponent<Collider2D>(), true);
         isIgnoringCollision = true;
     }
+    IEnumerator MeleeAttack()
+    {
+        attackpoint.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        attackpoint.SetActive(false);
+        Debug.Log("Ataque terminado");
+    }
+
 }
 

@@ -153,7 +153,8 @@ GameObject:
   - component: {fileID: 5226345463432239197}
   - component: {fileID: 423961282343674878}
   - component: {fileID: 3838093595831475087}
-  - component: {fileID: 9052869336184779785}
+  - component: {fileID: 7149622711082310551}
+  - component: {fileID: 6745276810117575612}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -294,6 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Playercontroller
   movespeed: 10
   jumpforce: 25
+  isGrounded: 0
   defaultMaterial: {fileID: 6200000, guid: 088c35d3c74ee5942835aca6321a5f2c, type: 2}
   frictionMaterial: {fileID: 6200000, guid: 94e692115e4f2ab41a4cbe4aca24e868, type: 2}
 --- !u!114 &5226345463432239197
@@ -303,7 +305,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5379899050558812502}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a91239e694bce9f4992047e68996b973, type: 3}
   m_Name: 
@@ -481,7 +483,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!95 &9052869336184779785
+--- !u!95 &7149622711082310551
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -503,3 +505,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6745276810117575612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5379899050558812502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5152be684409f4fb588c03e80f9ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  maxLives: 3
+  healthUI: {fileID: 0}
+  damageCooldown: 2
