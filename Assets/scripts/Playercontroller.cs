@@ -18,6 +18,7 @@ public class Playercontroller : MonoBehaviour
     public PhysicsMaterial2D defaultMaterial;
     public PhysicsMaterial2D frictionMaterial;
     public GameObject attackpoint;
+    bool getingKnockback = false;
     SpriteRenderer spriteRenderer;
 
     [Header("Animaciones")]
@@ -47,11 +48,6 @@ public class Playercontroller : MonoBehaviour
         //Salto
         jump();
         animator.SetBool("isGround", isGrounded);
-        //Ataque
-        if (playerInput.actions["Attack"].WasPressedThisFrame())
-        {
-            StartCoroutine(MeleeAttack());
-        }
 
 
     }
@@ -59,13 +55,14 @@ public class Playercontroller : MonoBehaviour
 
     void move()
     {
+        if (getingKnockback) return;
         Vector2 moveVector = playerInput.actions["move"].ReadValue<Vector2>();
         if (playerInput.actions["move"].IsPressed())
         {
             animator.SetFloat("Horizontal", Math.Abs(moveVector.x));
             rb.linearVelocity = new Vector2(moveVector.x * movespeed, rb.linearVelocity.y);
         }
-        else
+        else if (getingKnockback == false)
         {
             animator.SetFloat("Horizontal", 0);
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
@@ -76,11 +73,11 @@ public class Playercontroller : MonoBehaviour
         }
         if (moveVector.x < 0)
         {
-            spriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-0.4f, 0.4f, 1);
         }
         else
         {
-            spriteRenderer.flipX = false;
+            transform.localScale = new Vector3(0.4f, 0.4f, 1);
         }
     }
     void jump()
@@ -153,6 +150,15 @@ public class Playercontroller : MonoBehaviour
             isGrounded = true;
         }
     }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyAttack"))
+        {
+            float direction = transform.position.x < collision.transform.position.x ? -1 : 1;
+            Vector2 knockbackDirection = new Vector2(direction * 5f, 2f);
+            StartCoroutine(knockback(knockbackDirection.normalized));
+        }
+    }
 
     void GetDownPlatform()
     {
@@ -160,12 +166,14 @@ public class Playercontroller : MonoBehaviour
         Physics2D.IgnoreCollision(playerCollider, currentPlatform.GetComponent<Collider2D>(), true);
         isIgnoringCollision = true;
     }
-    IEnumerator MeleeAttack()
+    IEnumerator knockback(Vector2 direction)
     {
-        attackpoint.SetActive(true);
+        getingKnockback = true;
+        Debug.Log("knockback");
+        rb.linearVelocity = Vector2.zero;
+        rb.linearVelocity = new Vector2(direction.x * 10f, 5f);
         yield return new WaitForSeconds(0.5f);
-        attackpoint.SetActive(false);
-        Debug.Log("Ataque terminado");
+        getingKnockback = false;
     }
 
 }
