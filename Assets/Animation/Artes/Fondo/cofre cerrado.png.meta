@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 110b257d18a65854ab0831d303d9b7f7
+guid: e26733a6c76ca8948a3d2863a64175f3
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -142,10 +142,10 @@ TextureImporter:
       name: cofre cerrado_0
       rect:
         serializedVersion: 2
-        x: 246
-        y: 211
-        width: 120
-        height: 381
+        x: 0
+        y: 0
+        width: 124
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
