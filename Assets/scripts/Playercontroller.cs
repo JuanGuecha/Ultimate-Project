@@ -16,7 +16,11 @@ public class Playercontroller : MonoBehaviour
     PhysicsMaterial2D physicsMaterial2D;
     public PhysicsMaterial2D defaultMaterial;
     public PhysicsMaterial2D frictionMaterial;
-    SpriteRenderer spriteRenderer; 
+    SpriteRenderer spriteRenderer;
+
+    [Header("Configuración Visual")]
+    [Tooltip("Arrastra aquí el objeto hijo que contiene los huesos y el Animator")]
+    [SerializeField] private Transform _visualTransform;
 
     [Header("Animaciones")]
     Animator animator;
@@ -40,77 +44,98 @@ public class Playercontroller : MonoBehaviour
 
     void Update()
     {
-        //Movimiento
+        // Movimiento e Input: Polling cada frame para respuesta inmediata
         move();
-        //Salto
         jump();
+        
+        // Actualizamos parámetros del Animator
+        // 'isGround' controla si estamos tocando el suelo (Idle/Run balance)
         animator.SetBool("isGround", isGrounded);
-
+        
+        // El parámetro 'VerticalVelocity' ayuda a diferenciar entre subir (salto) y caer (gravedad)
+        // Similar a cómo los animadores de Disney exageran la caída para dar sensación de peso
+        animator.SetFloat("VerticalVelocity", rb.linearVelocity.y);
     }
-
 
     void move()
     {
-        Vector2 moveVector = playerInput.actions["move"].ReadValue<Vector2>();
-        if (playerInput.actions["move"].IsPressed())
+        // Nota: Asegúrate de que en el Input Action la acción se llame exactamente "Move"
+        Vector2 moveVector = playerInput.actions["Move"].ReadValue<Vector2>();
+        
+        if (playerInput.actions["Move"].IsPressed())
         {
-            animator.SetFloat("Horizontal", Math.Abs(moveVector.x));
+            animator.SetFloat("Speed", Math.Abs(moveVector.x));
             rb.linearVelocity = new Vector2(moveVector.x * movespeed, rb.linearVelocity.y);
         }
         else
         {
-            animator.SetFloat("Horizontal", 0);
+            animator.SetFloat("Speed", 0);
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
-        if (moveVector.y < -0.5f && currentPlatform != null)//presionar hacia abajo para bajar de la plataforma
+
+        if (moveVector.y < -0.5f && currentPlatform != null)
         {
             GetDownPlatform();
         }
-        if (moveVector.x < 0)
+
+        // Volteo de Visuals: Aplicamos el flip solo al contenedor de huesos.
+        // Esto mantiene a la Cámara (que es hija del Player principal) estable.
+        if (_visualTransform != null)
+        {
+            if (moveVector.x < 0)
             {
-                spriteRenderer.flipX = true;
+                _visualTransform.localScale = new Vector3(-1, 1, 1);
             }
-            else
+            else if (moveVector.x > 0)
             {
-                spriteRenderer.flipX = false;
+                _visualTransform.localScale = new Vector3(1, 1, 1);
             }
+        }
     }
+
     void jump()
     {
+        // En Unity, leer el input en WasPressed permite un solo salto por pulsación
         if (playerInput.actions["Jump"].WasPressedThisFrame())
         {
-            animator.SetTrigger("Jump");
-            if(isGrounded)
+            if (isGrounded)
             {
+                // Disparamos un Trigger para el salto (mejor que bool si la animación es corta)
+                // Es como en los juegos de lucha, una acción instantánea que activa una secuencia
+                animator.SetTrigger("Jump");
+                
+                isGrounded = false; // "Forzamos" la salida del suelo para la animación
+                animator.SetBool("isGround", false);
+                
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpforce);
             }
-           
         }
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (collision.gameObject.CompareTag("Ground"))
+        // Usamos tags para identificar superficies. Ground, Platform y Saliente reinician el salto.
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Saliente"))
         {
             isGrounded = true;
+            // Al tocar suelo, reseteamos el trigger por si acaso y activamos isGround
+            animator.SetBool("isGround", true);
+            animator.ResetTrigger("Jump");
         }
+
         if (collision.gameObject.CompareTag("Platform") && !isIgnoringCollision)
         {
-            isGrounded = true;
             currentPlatform = collision.gameObject;
-            transform.SetParent(collision.transform); // Esto se utiliza para que el jugador pueda moverse en las plataformas móviles sin problemas, 
-            // ya que el jugador se convierte en hijo de la plataforma y se mueve junto con ella.
-
+            // Parentesco dinámico: Como en los niveles de trenes en Uncharted, 
+            // nos pegamos a la plataforma para heredar su inercia.
+            transform.SetParent(collision.transform);
         }
+
         if (collision.gameObject.CompareTag("Saliente"))
         {
             rb.sharedMaterial = frictionMaterial;
-            isGrounded = true;
-
-
         }
+
         if (currentPlatform != null)
         {
             Physics2D.IgnoreCollision(playerCollider, currentPlatform.GetComponent<Collider2D>(), false);
@@ -118,20 +143,26 @@ public class Playercontroller : MonoBehaviour
 
         isIgnoringCollision = false;
     }
+
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground") ||
-        collision.gameObject.CompareTag("Platform"))
+        // Al salir de una superficie de apoyo, marcamos que ya no estamos en suelo.
+        // Esto activará la animación de "caída" o "vuelo" si la velocidad vertical es negativa.
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Saliente"))
         {
             isGrounded = false;
-            transform.SetParent(null); //Cuando deja de estar en la plataforma, se establece el padre del jugador a null para que ya no siga el movimiento de la plataforma.
-        }
-        if (collision.gameObject.CompareTag("Saliente"))
-        {
-            rb.sharedMaterial = defaultMaterial;
-            isGrounded = false;
-        }
+            animator.SetBool("isGround", false);
+            
+            if (collision.gameObject.CompareTag("Platform"))
+            {
+                transform.SetParent(null);
+            }
 
+            if (collision.gameObject.CompareTag("Saliente"))
+            {
+                rb.sharedMaterial = defaultMaterial;
+            }
+        }
     }
     void OnCollisionStay2D(Collision2D collision)
     {
