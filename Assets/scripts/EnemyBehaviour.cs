@@ -1,64 +1,96 @@
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 public class EnemyBehaviour : MonoBehaviour
 {
-    Transform player;
-    Rigidbody2D rb;
-   
-    void Start()
-    {
-         player = GameObject.Find("Player").transform;
-         rb = GetComponent<Rigidbody2D>();
-    }
+    public float detectionRange = 5f;
+    public float speed = 5f;
 
-    
-    void Update()
-    {
-         Vector2 playerDirection = player.position - transform.position;
-         rb.linearVelocity = new Vector2(playerDirection.normalized.x * 5f, rb.linearVelocity.y);
-    }
-    /*
-    private Transform target;
-    private NavMeshAgent agent;
-    public Material momifiedMaterial;
-    private Renderer renderer;
-    Vector2 distance;
+    private Transform player;
+    private Rigidbody2D rb;
+    private EnemyPatrol patrol;
+    public GameObject attackObject;
+    bool isAttacking = false;
+    private Animator anim;
 
     void Start()
     {
-        renderer = GetComponentInChildren<Renderer>();
-        agent = GetComponent<NavMeshAgent>();
-        agent.stoppingDistance = 2f;
-        agent.speed = 5f;
-        agent.acceleration = 15;
+        rb = GetComponent<Rigidbody2D>();
+        patrol = GetComponent<EnemyPatrol>();
+        anim = GetComponentInChildren<Animator>();
 
-        // Busca automáticamente al player por tag
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject obj = GameObject.FindGameObjectWithTag("Player");
+        if (obj != null)
+            player = obj.transform;
 
-        if (player != null)
+        if (SceneManager.GetActiveScene().name == "JefePruebas")//Para que reviva en la escena de jefe
         {
-            target = player.transform;
-        }
-        else
-        {
-            Debug.LogWarning("No se encontró ningún objeto con tag 'Player'");
+            StartCoroutine(Revive());
         }
     }
 
-
-    void Update()
+    void FixedUpdate()
     {
-        if (target == null) return; // 👈 sale inmediatamente
+        if (player == null) return;
 
-        Vector2 distance = target.position - transform.position;
+        float distance = Vector2.Distance(transform.position, player.position);
 
-        if (distance.magnitude < 7f)
+
+        if (distance < detectionRange && !isAttacking)
         {
-            agent.SetDestination(target.position);
+            patrol.enabled = false;
+
+            Vector2 direction = (player.position - transform.position).normalized;
+
+            rb.linearVelocity = new Vector2(direction.x * speed, rb.linearVelocity.y);
+        }
+        else if (!isAttacking)
+        {
+
+            patrol.enabled = true;
+        }
+        if (distance < 1.5f && !isAttacking)
+        {
+            StartCoroutine(attack());
+        }
+        float vx = rb.linearVelocity.x;
+
+        if (vx > 0.01f)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x);
+            transform.localScale = scale;
+        }
+        else if (vx < -0.01f)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = -Mathf.Abs(scale.x);
+            transform.localScale = scale;
         }
     }
-    */
+    IEnumerator attack()
+    {
+
+        isAttacking = true;
+        Debug.Log("Enemigo Atacando");
+        attackObject.SetActive(true);
+        yield return new WaitForSeconds(0.6f);
+        attackObject.SetActive(false);
+        isAttacking = false;
+    }
 
 
+    IEnumerator Revive()
+    {
+        patrol.enabled = false;
+        isAttacking = true;
+        anim.Play("Revive");
+        anim.SetBool("Isreviving", true);
+        yield return new WaitForSeconds(1f);
+        anim.SetBool("Isreviving", false);
+        isAttacking = false;
+
+
+
+    }
 }

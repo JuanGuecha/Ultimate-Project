@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
 using UnityEngine;
@@ -12,15 +13,13 @@ public class Playercontroller : MonoBehaviour
     public float jumpforce;
     bool isIgnoringCollision;
     GameObject currentPlatform;
-    bool isGrounded;
+    public bool isGrounded;
     PhysicsMaterial2D physicsMaterial2D;
     public PhysicsMaterial2D defaultMaterial;
     public PhysicsMaterial2D frictionMaterial;
+    public GameObject attackpoint;
+    bool getingKnockback = false;
     SpriteRenderer spriteRenderer;
-
-    [Header("Configuración Visual")]
-    [Tooltip("Arrastra aquí el objeto hijo que contiene los huesos y el Animator")]
-    [SerializeField] private Transform _visualTransform;
 
     [Header("Animaciones")]
     Animator animator;
@@ -47,27 +46,24 @@ public class Playercontroller : MonoBehaviour
         // Movimiento e Input: Polling cada frame para respuesta inmediata
         move();
         jump();
-        
+
         // Actualizamos parámetros del Animator
         // 'isGround' controla si estamos tocando el suelo (Idle/Run balance)
         animator.SetBool("isGround", isGrounded);
-        
-        // El parámetro 'VerticalVelocity' ayuda a diferenciar entre subir (salto) y caer (gravedad)
-        // Similar a cómo los animadores de Disney exageran la caída para dar sensación de peso
-        animator.SetFloat("VerticalVelocity", rb.linearVelocity.y);
+
+
     }
 
     void move()
     {
-        // Nota: Asegúrate de que en el Input Action la acción se llame exactamente "Move"
-        Vector2 moveVector = playerInput.actions["Move"].ReadValue<Vector2>();
-        
+        if (getingKnockback) return;
+        Vector2 moveVector = playerInput.actions["move"].ReadValue<Vector2>();
         if (playerInput.actions["Move"].IsPressed())
         {
             animator.SetFloat("Speed", Math.Abs(moveVector.x));
             rb.linearVelocity = new Vector2(moveVector.x * movespeed, rb.linearVelocity.y);
         }
-        else
+        else if (getingKnockback == false)
         {
             animator.SetFloat("Speed", 0);
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
@@ -77,19 +73,13 @@ public class Playercontroller : MonoBehaviour
         {
             GetDownPlatform();
         }
-
-        // Volteo de Visuals: Aplicamos el flip solo al contenedor de huesos.
-        // Esto mantiene a la Cámara (que es hija del Player principal) estable.
-        if (_visualTransform != null)
+        if (moveVector.x < 0)
         {
-            if (moveVector.x < 0)
-            {
-                _visualTransform.localScale = new Vector3(-1, 1, 1);
-            }
-            else if (moveVector.x > 0)
-            {
-                _visualTransform.localScale = new Vector3(1, 1, 1);
-            }
+            transform.localScale = new Vector3(-1, 1, 1); ;
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
@@ -103,10 +93,10 @@ public class Playercontroller : MonoBehaviour
                 // Disparamos un Trigger para el salto (mejor que bool si la animación es corta)
                 // Es como en los juegos de lucha, una acción instantánea que activa una secuencia
                 animator.SetTrigger("Jump");
-                
+
                 isGrounded = false; // "Forzamos" la salida del suelo para la animación
                 animator.SetBool("isGround", false);
-                
+
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpforce);
             }
         }
@@ -122,8 +112,7 @@ public class Playercontroller : MonoBehaviour
             animator.SetBool("isGround", true);
             animator.ResetTrigger("Jump");
         }
-
-        if (collision.gameObject.CompareTag("Platform") && !isIgnoringCollision)
+        if (collision.gameObject.CompareTag("MovingPlatform") && !isIgnoringCollision)
         {
             currentPlatform = collision.gameObject;
             // Parentesco dinámico: Como en los niveles de trenes en Uncharted, 
@@ -152,7 +141,7 @@ public class Playercontroller : MonoBehaviour
         {
             isGrounded = false;
             animator.SetBool("isGround", false);
-            
+
             if (collision.gameObject.CompareTag("Platform"))
             {
                 transform.SetParent(null);
@@ -170,7 +159,19 @@ public class Playercontroller : MonoBehaviour
         {
             isGrounded = true;
             currentPlatform = collision.gameObject;
-
+        }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyAttack"))
+        {
+            float direction = transform.position.x < collision.transform.position.x ? -1 : 1;
+            Vector2 knockbackDirection = new Vector2(direction * 5f, 2f);
+            StartCoroutine(knockback(knockbackDirection.normalized));
         }
     }
 
@@ -180,5 +181,15 @@ public class Playercontroller : MonoBehaviour
         Physics2D.IgnoreCollision(playerCollider, currentPlatform.GetComponent<Collider2D>(), true);
         isIgnoringCollision = true;
     }
+    IEnumerator knockback(Vector2 direction)
+    {
+        getingKnockback = true;
+        Debug.Log("knockback");
+        rb.linearVelocity = Vector2.zero;
+        rb.linearVelocity = new Vector2(direction.x * 10f, 5f);
+        yield return new WaitForSeconds(0.5f);
+        getingKnockback = false;
+    }
+
 }
 

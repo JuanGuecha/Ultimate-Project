@@ -197,7 +197,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2000788365
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7028616704906629411, guid: c671f648831c17241b2929371015d8c6, type: 3}
@@ -446,7 +446,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2000788365
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5986244224761071404, guid: d80ff4645c47926468482c7aa845fc82, type: 3}
@@ -855,7 +855,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2000788365
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3465286685962602723, guid: 45ddfc6281ebe7c43a34e1992140fb01, type: 3}
@@ -1084,7 +1084,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1996411853
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
@@ -36782,22 +36782,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5120730298778543773, guid: ce6a5c45c69a3cf4c907b45469246e0d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 5120730298778543773, guid: ce6a5c45c69a3cf4c907b45469246e0d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.2
-      objectReference: {fileID: 0}
     - target: {fileID: 5226345463432239197, guid: ce6a5c45c69a3cf4c907b45469246e0d, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226345463432239197, guid: ce6a5c45c69a3cf4c907b45469246e0d, type: 3}
+      propertyPath: enemyLayer.m_Bits
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5379899050558812502, guid: ce6a5c45c69a3cf4c907b45469246e0d, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6745276810117575612, guid: ce6a5c45c69a3cf4c907b45469246e0d, type: 3}
+      propertyPath: healthUI
+      value: 
+      objectReference: {fileID: 1552591671}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36810,10 +36810,10 @@ PrefabInstance:
       addedObject: {fileID: 1334338534}
     - targetCorrespondingSourceObject: {fileID: 5379899050558812502, guid: ce6a5c45c69a3cf4c907b45469246e0d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1334338546}
+      addedObject: {fileID: 1334338545}
     - targetCorrespondingSourceObject: {fileID: 5379899050558812502, guid: ce6a5c45c69a3cf4c907b45469246e0d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1334338545}
+      addedObject: {fileID: 1334338546}
   m_SourcePrefab: {fileID: 100100000, guid: ce6a5c45c69a3cf4c907b45469246e0d, type: 3}
 --- !u!1 &1334338532 stripped
 GameObject:
@@ -37244,7 +37244,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1206678327
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 107763445868651435, guid: 32b757f8ca7f5974d9da949f40eee1de, type: 3}
@@ -37752,7 +37752,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1520984173
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
@@ -38763,7 +38763,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2000788365
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3326971659086699885, guid: 243a68000e5692d44a81895cf7ee51ff, type: 3}
@@ -38854,7 +38854,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2000788365
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 4
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6411344067128087883, guid: f4056cba1746ab64587d597715f821ca, type: 3}

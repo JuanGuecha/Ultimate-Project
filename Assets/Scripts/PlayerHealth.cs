@@ -45,10 +45,12 @@ public class PlayerHealth : MonoBehaviour
         canTakeDamage = true;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("EnemyAttack"))
         {
+            Debug.Log("Recibio daño ");
             TakeDamage(1);
         }
     }
