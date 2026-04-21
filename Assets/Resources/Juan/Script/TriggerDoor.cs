@@ -18,12 +18,6 @@ public class TriggerDoor : MonoBehaviour
     
             IsOpen = true;      
         }
-        if (collision.CompareTag("Player") && gameObject.CompareTag("Sensor_2"))
-        {
-            Debug.Log("Puerta colisionó con el jugador, iniciando movimiento");
-    
-            IsOpen = true;      
-        }
         //Para mas tags, se pueden agregar mas condiciones if con el mismo formato, cambiando el tag del sensor y el mensaje de depuración para cada caso.
 
     }

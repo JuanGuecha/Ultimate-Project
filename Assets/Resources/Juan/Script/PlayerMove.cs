@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     // Soporte para plataformas.
     [Header("Plataformas")]
     [SerializeField] private string movingPlatformTag = "MovilPlatform";
-    [SerializeField] private string solidPlatformTag = "SolidPlatform";
+    //[SerializeField] private string solidPlatformTag = "SolidPlatform";
 
     // Materiales opcionales por si luego se reactiva fricción especial.
     /*
