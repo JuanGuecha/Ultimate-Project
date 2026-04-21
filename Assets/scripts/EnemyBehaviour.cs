@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class EnemyBehaviour : MonoBehaviour
 {
     public float detectionRange = 5f;
@@ -10,15 +11,22 @@ public class EnemyBehaviour : MonoBehaviour
     private EnemyPatrol patrol;
     public GameObject attackObject;
     bool isAttacking = false;
+    private Animator anim;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         patrol = GetComponent<EnemyPatrol>();
+        anim = GetComponentInChildren<Animator>();
 
         GameObject obj = GameObject.FindGameObjectWithTag("Player");
         if (obj != null)
             player = obj.transform;
+
+        if (SceneManager.GetActiveScene().name == "JefePruebas")//Para que reviva en la escena de jefe
+        {
+            StartCoroutine(Revive());
+        }
     }
 
     void FixedUpdate()
@@ -26,6 +34,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (player == null) return;
 
         float distance = Vector2.Distance(transform.position, player.position);
+
 
         if (distance < detectionRange && !isAttacking)
         {
@@ -44,6 +53,20 @@ public class EnemyBehaviour : MonoBehaviour
         {
             StartCoroutine(attack());
         }
+        float vx = rb.linearVelocity.x;
+
+        if (vx > 0.01f)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x);
+            transform.localScale = scale;
+        }
+        else if (vx < -0.01f)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = -Mathf.Abs(scale.x);
+            transform.localScale = scale;
+        }
     }
     IEnumerator attack()
     {
@@ -54,5 +77,20 @@ public class EnemyBehaviour : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         attackObject.SetActive(false);
         isAttacking = false;
+    }
+
+
+    IEnumerator Revive()
+    {
+        patrol.enabled = false;
+        isAttacking = true;
+        anim.Play("Revive");
+        anim.SetBool("Isreviving", true);
+        yield return new WaitForSeconds(1f);
+        anim.SetBool("Isreviving", false);
+        isAttacking = false;
+
+
+
     }
 }

@@ -73,11 +73,11 @@ public class Playercontroller : MonoBehaviour
         }
         if (moveVector.x < 0)
         {
-            transform.localScale = new Vector3(-0.4f, 0.4f, 1);
+            transform.localScale = new Vector3(-1, 1, 2.5f); ;
         }
         else
         {
-            transform.localScale = new Vector3(0.4f, 0.4f, 1);
+            transform.localScale = new Vector3(1, 1, 2.5f);
         }
     }
     void jump()
