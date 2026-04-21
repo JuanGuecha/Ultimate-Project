@@ -11,11 +11,18 @@ TagManager:
   - Enemy
   - Placa
   - Zona2
+  - Zona3
+  - Zona4
+  - Zona5
+  - Door_1
+  - Sensor_1
+  - Bat
+  - MovilPlatform
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Platfoms
   - Water
   - UI
   - Ground
@@ -65,6 +72,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 2761602431
+    locked: 0
+  - name: Pendulo
+    uniqueID: 2198306539
     locked: 0
   m_RenderingLayers:
   - Default
