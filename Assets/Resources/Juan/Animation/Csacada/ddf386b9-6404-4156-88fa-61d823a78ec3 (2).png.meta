@@ -1,10 +1,64 @@
 fileFormatVersion: 2
-guid: f3fe0b6cb1ca20b4b92a08766b245b96
+guid: 5f5d4e4a053443544990ca78e90b9bdc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1709753230742513919
-    second: TileEjemplo_0
+      213: 8202624421736973835
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_0
+  - first:
+      213: 1715904137548329361
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_1
+  - first:
+      213: 610405139437083114
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_2
+  - first:
+      213: -1580542416023491846
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_3
+  - first:
+      213: -8364672637586201415
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_4
+  - first:
+      213: 1411523251293095702
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_5
+  - first:
+      213: 1443087494910342553
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_6
+  - first:
+      213: 5590856658291783731
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_7
+  - first:
+      213: -7880209604696316946
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_8
+  - first:
+      213: -2765873583413027683
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_9
+  - first:
+      213: 4711398655746476505
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_10
+  - first:
+      213: -8275138917788692128
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_11
+  - first:
+      213: 8452679698280149672
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_12
+  - first:
+      213: -393697036581958234
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_13
+  - first:
+      213: 1546075185331586569
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_14
+  - first:
+      213: 7363034270815756830
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_15
+  - first:
+      213: -8076498653685650777
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_16
+  - first:
+      213: 881320030437129434
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_17
+  - first:
+      213: -596411217425802913
+    second: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_18
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +105,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +129,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +167,101 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TileEjemplo_0
+      name: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 94
-        width: 65
-        height: 64
+        x: 7
+        y: 573
+        width: 229
+        height: 557
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 32, y: 18, z: 5, w: 64}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b068393c37395d170800000000000000
+      internalID: 8202624421736973835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_1
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 591
+        width: 229
+        height: 472
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 37, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 191f03bc8bd10d710800000000000000
+      internalID: 1715904137548329361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_2
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 573
+        width: 213
+        height: 557
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 24, y: 16, z: 0, w: 69}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae958318d38987800800000000000000
+      internalID: 610405139437083114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_3
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 573
+        width: 212
+        height: 557
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 17, z: 18, w: 65}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afa6b74fb09c01ae0800000000000000
+      internalID: -1580542416023491846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_4
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 573
+        width: 229
+        height: 557
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,294 +270,162 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ff8ebf331834ab710800000000000000
-      internalID: 1709753230742513919
+      spriteID: 9b4ae36dd86baeb80800000000000000
+      internalID: -8364672637586201415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileEjemplo_1
+      name: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_5
       rect:
         serializedVersion: 2
-        x: 86
-        y: 94
-        width: 65
-        height: 64
+        x: 1152
+        y: 573
+        width: 229
+        height: 557
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6869a19335edba14ab5bdc92ca5fa723
-      internalID: 2045449419
+      spriteID: 61787812becb69310800000000000000
+      internalID: 1411523251293095702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileEjemplo_2
+      name: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_6
       rect:
         serializedVersion: 2
-        x: 151
-        y: 94
-        width: 65
-        height: 64
+        x: 7
+        y: 16
+        width: 229
+        height: 557
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 949d4f19bd366d94f80876879f709b63
-      internalID: 1107034300
+      spriteID: 99570f94e60e60410800000000000000
+      internalID: 1443087494910342553
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileEjemplo_3
+      name: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_7
       rect:
         serializedVersion: 2
-        x: 216
-        y: 94
-        width: 65
-        height: 64
+        x: 236
+        y: 16
+        width: 229
+        height: 557
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9418355623f995b459ee7aa569cc45cb
-      internalID: 48558432
+      spriteID: 338fb935286b69d40800000000000000
+      internalID: 5590856658291783731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileEjemplo_4
+      name: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_8
       rect:
         serializedVersion: 2
-        x: 281
-        y: 94
-        width: 65
-        height: 64
+        x: 465
+        y: 16
+        width: 229
+        height: 557
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3d4824e6cbbd38340905d0041de8d4b7
-      internalID: 277226946
+      spriteID: ee3647c9d1fd3a290800000000000000
+      internalID: -7880209604696316946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileEjemplo_5
+      name: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_9
       rect:
         serializedVersion: 2
-        x: 346
-        y: 94
-        width: 65
-        height: 64
+        x: 694
+        y: 16
+        width: 229
+        height: 557
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 655290148aa706943a0a15e5b4676b2e
-      internalID: -718832142
+      spriteID: d9c970f41a4ad99d0800000000000000
+      internalID: -2765873583413027683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileEjemplo_6
+      name: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_10
       rect:
         serializedVersion: 2
-        x: 411
-        y: 94
-        width: 65
-        height: 64
+        x: 923
+        y: 16
+        width: 229
+        height: 557
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3cb34148fd0a48840bbc4431de0f2586
-      internalID: -818421723
+      spriteID: 9d985078d10426140800000000000000
+      internalID: 4711398655746476505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileEjemplo_7
+      name: ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_11
       rect:
         serializedVersion: 2
-        x: 21
-        y: 30
-        width: 65
-        height: 64
+        x: 1152
+        y: 16
+        width: 229
+        height: 557
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a12c8df4930acee4da0a03b1cce3b32a
-      internalID: -880908394
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileEjemplo_8
-      rect:
-        serializedVersion: 2
-        x: 86
-        y: 30
-        width: 65
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c73c81c9cde33e740b22792f1817072a
-      internalID: 1004361953
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileEjemplo_9
-      rect:
-        serializedVersion: 2
-        x: 151
-        y: 30
-        width: 65
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 99c7f2295b734684686035d8d3f67b13
-      internalID: -598853373
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileEjemplo_10
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 30
-        width: 65
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9d640e76978bb7409d6eafab841ff1b
-      internalID: 1428253259
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileEjemplo_11
-      rect:
-        serializedVersion: 2
-        x: 281
-        y: 30
-        width: 65
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1469489148a3be44fb713e65d09961ad
-      internalID: 1539704079
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileEjemplo_12
-      rect:
-        serializedVersion: 2
-        x: 346
-        y: 30
-        width: 65
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67bc109a1d9991046beb1367893f13b5
-      internalID: -1685785015
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileEjemplo_13
-      rect:
-        serializedVersion: 2
-        x: 411
-        y: 30
-        width: 65
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78549a786e98d924c809b0b7f1d4ffdf
-      internalID: -526719474
+      spriteID: 061d1327ffcc82d80800000000000000
+      internalID: -8275138917788692128
       vertices: []
       indices: 
       edges: []
@@ -424,7 +434,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 425a566cfe69f1647bb52eb6003941d6
+    spriteID: 0c79cf78b860ccf40b30003ed92d656c
     internalID: 0
     vertices: []
     indices: 
@@ -434,22 +444,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":65.0,"y":64.0},"gridSpriteOffset":{"x":21.0,"y":24.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":229.0,"y":557.0},"gridSpriteOffset":{"x":7.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      TileEjemplo_0: 1709753230742513919
-      TileEjemplo_1: 2045449419
-      TileEjemplo_10: 1428253259
-      TileEjemplo_11: 1539704079
-      TileEjemplo_12: -1685785015
-      TileEjemplo_13: -526719474
-      TileEjemplo_2: 1107034300
-      TileEjemplo_3: 48558432
-      TileEjemplo_4: 277226946
-      TileEjemplo_5: -718832142
-      TileEjemplo_6: -818421723
-      TileEjemplo_7: -880908394
-      TileEjemplo_8: 1004361953
-      TileEjemplo_9: -598853373
+      ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_0: 8202624421736973835
+      ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_1: 1715904137548329361
+      ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_10: 4711398655746476505
+      ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_11: -8275138917788692128
+      ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_2: 610405139437083114
+      ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_3: -1580542416023491846
+      ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_4: -8364672637586201415
+      ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_5: 1411523251293095702
+      ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_6: 1443087494910342553
+      ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_7: 5590856658291783731
+      ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_8: -7880209604696316946
+      ddf386b9-6404-4156-88fa-61d823a78ec3 (2)_9: -2765873583413027683
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
