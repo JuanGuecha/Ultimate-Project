@@ -61,11 +61,11 @@ TagManager:
   - name: Enemigos
     uniqueID: 3088288969
     locked: 0
-  - name: Tilemap Details
-    uniqueID: 1520984173
-    locked: 0
   - name: Tilemap Deco
     uniqueID: 1996411853
+    locked: 0
+  - name: Tilemap Details
+    uniqueID: 1520984173
     locked: 0
   - name: Player
     uniqueID: 1389083435
@@ -75,6 +75,9 @@ TagManager:
     locked: 0
   - name: Pendulo
     uniqueID: 2198306539
+    locked: 0
+  - name: Tramps
+    uniqueID: 42406697
     locked: 0
   m_RenderingLayers:
   - Default

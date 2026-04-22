@@ -1,6 +1,4 @@
 using System;
-using System.Text.RegularExpressions;
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class Playercontroller : MonoBehaviour
@@ -17,10 +15,6 @@ public class Playercontroller : MonoBehaviour
     public PhysicsMaterial2D defaultMaterial;
     public PhysicsMaterial2D frictionMaterial;
     SpriteRenderer spriteRenderer;
-
-    [Header("Configuración Visual")]
-    [Tooltip("Arrastra aquí el objeto hijo que contiene los huesos y el Animator")]
-    [SerializeField] private Transform _visualTransform;
 
     [Header("Animaciones")]
     Animator animator;
@@ -54,7 +48,7 @@ public class Playercontroller : MonoBehaviour
         
         // El parámetro 'VerticalVelocity' ayuda a diferenciar entre subir (salto) y caer (gravedad)
         // Similar a cómo los animadores de Disney exageran la caída para dar sensación de peso
-        animator.SetFloat("VerticalVelocity", rb.linearVelocity.y);
+    
     }
 
     void move()
@@ -64,32 +58,18 @@ public class Playercontroller : MonoBehaviour
         
         if (playerInput.actions["Move"].IsPressed())
         {
-            animator.SetFloat("Speed", Math.Abs(moveVector.x));
+            animator.SetFloat("Horizontal", Math.Abs(moveVector.x));
             rb.linearVelocity = new Vector2(moveVector.x * movespeed, rb.linearVelocity.y);
         }
         else
         {
-            animator.SetFloat("Speed", 0);
+            animator.SetFloat("Horizontal", 0);
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
 
         if (moveVector.y < -0.5f && currentPlatform != null)
         {
             GetDownPlatform();
-        }
-
-        // Volteo de Visuals: Aplicamos el flip solo al contenedor de huesos.
-        // Esto mantiene a la Cámara (que es hija del Player principal) estable.
-        if (_visualTransform != null)
-        {
-            if (moveVector.x < 0)
-            {
-                _visualTransform.localScale = new Vector3(-1, 1, 1);
-            }
-            else if (moveVector.x > 0)
-            {
-                _visualTransform.localScale = new Vector3(1, 1, 1);
-            }
         }
     }
 

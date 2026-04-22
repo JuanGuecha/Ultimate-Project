@@ -5,6 +5,7 @@ public class MovePlatform : MonoBehaviour
     [SerializeField] private Transform waypointParent;
     [SerializeField] private float speed = 2f;
     [SerializeField] private float stoppingDistance = 0.1f;
+
     
     private Transform[] waypoints;
     private int currentWaypointIndex = 0;
@@ -29,7 +30,7 @@ public class MovePlatform : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (waypoints.Length == 0) return;
+        if (waypoints.Length == 0) return; 
         MoveToWaypoints();
     }
 

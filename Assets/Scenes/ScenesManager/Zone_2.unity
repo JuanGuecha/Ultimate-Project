@@ -153,7 +153,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2642098}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b87ec08e190ad140922c3834cff097d, type: 3}
   m_Name: 
@@ -162,7 +162,6 @@ MonoBehaviour:
   jumpforce: 6
   defaultMaterial: {fileID: 6200000, guid: 088c35d3c74ee5942835aca6321a5f2c, type: 2}
   frictionMaterial: {fileID: 6200000, guid: 94e692115e4f2ab41a4cbe4aca24e868, type: 2}
-  _visualTransform: {fileID: 0}
 --- !u!50 &2642101
 Rigidbody2D:
   serializedVersion: 5
@@ -527,6 +526,10 @@ PrefabInstance:
     - target: {fileID: 4066918424360198491, guid: 9262b0cbbfc5556408100bfd10bfb428, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832548759049179291, guid: 9262b0cbbfc5556408100bfd10bfb428, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4832548759049179291, guid: 9262b0cbbfc5556408100bfd10bfb428, type: 3}
       propertyPath: m_TagString
@@ -3896,11 +3899,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 09cc10296d471864ba869bd8f2819df8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 44.89
+      value: 74.99
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 09cc10296d471864ba869bd8f2819df8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.87
+      value: -2.38
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 09cc10296d471864ba869bd8f2819df8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6625,14 +6628,6 @@ PrefabInstance:
     - target: {fileID: 5499023264281711610, guid: 55fe860394db661418e99035c9274900, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5723110881232685074, guid: 55fe860394db661418e99035c9274900, type: 3}
-      propertyPath: amplitude
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 7938474825212343292, guid: 55fe860394db661418e99035c9274900, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8115305112965965010, guid: 55fe860394db661418e99035c9274900, type: 3}
       propertyPath: m_Name
