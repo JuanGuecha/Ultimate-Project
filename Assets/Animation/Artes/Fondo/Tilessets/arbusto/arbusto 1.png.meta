@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fff5c66daeb23c6488e67031f525acbf
+guid: e93361c472909624aaacddbc806432dd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4636512018769879695
-    second: tilel 2_0
+      213: -8079420200848423461
+    second: arbusto 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,7 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tilel 2_0
+      name: arbusto 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f82ab93ad13385040800000000000000
-      internalID: 4636512018769879695
+      spriteID: bd58059422220ef80800000000000000
+      internalID: -8079420200848423461
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tilel 2_0: 4636512018769879695
+      arbusto 1_0: -8079420200848423461
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

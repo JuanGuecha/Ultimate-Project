@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 902bcd6077453b240a530aff6b1f1d0c
+guid: fe31a24ddc510e34e811d13837497299
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1047191541915669221
-    second: tilel 0_0
+      213: 6781581240928314928
+    second: arbusto 4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tilel 0_0
+      name: arbusto 4_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 500
-        height: 500
+        width: 385
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5e25dabb82f588e00800000000000000
-      internalID: 1047191541915669221
+      spriteID: 0362cf055340d1e50800000000000000
+      internalID: 6781581240928314928
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tilel 0_0: 1047191541915669221
+      arbusto 4_0: 6781581240928314928
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
