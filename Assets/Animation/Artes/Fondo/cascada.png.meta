@@ -142,9 +142,9 @@ TextureImporter:
       name: cascada_0
       rect:
         serializedVersion: 2
-        x: 363
+        x: 463
         y: 0
-        width: 1000
+        width: 810
         height: 2784
       alignment: 0
       pivot: {x: 0, y: 0}
