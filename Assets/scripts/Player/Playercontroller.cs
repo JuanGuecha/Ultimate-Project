@@ -19,10 +19,10 @@ public class Playercontroller : MonoBehaviour
     public PhysicsMaterial2D frictionMaterial;
     public GameObject attackpoint;
     bool getingKnockback = false;
-    SpriteRenderer spriteRenderer;
+
 
     [Header("Animaciones")]
-    Animator animator;
+    [SerializeField] Animator animator;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,8 +30,6 @@ public class Playercontroller : MonoBehaviour
         playerCollider = GetComponent<Collider2D>();
         isGrounded = true;
         rb.sharedMaterial = defaultMaterial;
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
     void Start()
@@ -75,10 +73,12 @@ public class Playercontroller : MonoBehaviour
         }
         if (moveVector.x < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1); ;
+
+            transform.localScale = new Vector3(-1, 1, 1);
         }
-        else
+        else if (moveVector.x > 0)
         {
+
             transform.localScale = new Vector3(1, 1, 1);
         }
     }
@@ -104,13 +104,14 @@ public class Playercontroller : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Usamos tags para identificar superficies. Ground, Platform y Saliente reinician el salto.
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Saliente"))
+        // Usamos tags para identificar superficies. Ground, Platform
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = true;
             // Al tocar suelo, reseteamos el trigger por si acaso y activamos isGround
             animator.SetBool("isGround", true);
             animator.ResetTrigger("Jump");
+            transform.SetParent(null);
         }
         if (collision.gameObject.CompareTag("MovingPlatform") && !isIgnoringCollision)
         {
@@ -118,11 +119,7 @@ public class Playercontroller : MonoBehaviour
             // Parentesco dinámico: Como en los niveles de trenes en Uncharted, 
             // nos pegamos a la plataforma para heredar su inercia.
             transform.SetParent(collision.transform);
-        }
-
-        if (collision.gameObject.CompareTag("Saliente"))
-        {
-            rb.sharedMaterial = frictionMaterial;
+            isGrounded = true;
         }
 
         if (currentPlatform != null)
@@ -137,7 +134,7 @@ public class Playercontroller : MonoBehaviour
     {
         // Al salir de una superficie de apoyo, marcamos que ya no estamos en suelo.
         // Esto activará la animación de "caída" o "vuelo" si la velocidad vertical es negativa.
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Saliente"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = false;
             animator.SetBool("isGround", false);
@@ -145,11 +142,6 @@ public class Playercontroller : MonoBehaviour
             if (collision.gameObject.CompareTag("Platform"))
             {
                 transform.SetParent(null);
-            }
-
-            if (collision.gameObject.CompareTag("Saliente"))
-            {
-                rb.sharedMaterial = defaultMaterial;
             }
         }
     }

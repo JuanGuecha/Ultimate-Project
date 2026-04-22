@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public int totalScarabFragments = 3;
 
     public ScarabUI scarabUI;
-    public DoorController finalDoor;
+    // public DoorController finalDoor;
 
     private void Awake()
     {
@@ -44,12 +44,12 @@ public class GameManager : MonoBehaviour
             scarabUI.UpdateScarabUI(collectedScarabFragments);
         }
 
-        if (collectedScarabFragments >= totalScarabFragments)
+        /*if (collectedScarabFragments >= totalScarabFragments)
         {
             if (finalDoor != null)
             {
                 finalDoor.OpenDoor();
             }
-        }
+        }*/
     }
 }

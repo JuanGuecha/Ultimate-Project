@@ -1,84 +1,45 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
----
-!u!78 &1
+--- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags:
-    - Ground
-    - Platform
-    - Wall
-    - Saliente
-    - Placa
-    - Zona2
-    - Zona3
-    - Zona4
-    - Zona5
-    - Door_1
-    - Sensor_1
-    - Bat
-    - MovilPlatform
-    - Enemy
-    - MovingPlatform
-    - EnemyAttack
+  tags: []
   layers:
-    - Default
-    - TransparentFX
-    - Ignore Raycast
-    - Platfoms
-    - Player
-    - Water
-    - UI
-    - Enemies
-    - Isis
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
-    - name: Default
-      uniqueID: 0
-      locked: 0
-    - name: Fondo
-      uniqueID: 2294178931
-      locked: 0
-    - name: Enemigos
-      uniqueID: 3088288969
-      locked: 0
-    - name: Tilemap Details
-      uniqueID: 1520984173
-      locked: 0
-    - name: Tilemap Deco
-      uniqueID: 1996411853
-      locked: 0
-    - name: Player
-      uniqueID: 1389083435
-      locked: 0
-    - name: Ground
-      uniqueID: 2761602431
-      locked: 0
-    - name: Pendulo
-      uniqueID: 2198306539
-      locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
   m_RenderingLayers:
-    - Default
+  - Default

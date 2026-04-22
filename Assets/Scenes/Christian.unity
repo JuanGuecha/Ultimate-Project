@@ -1054,6 +1054,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5199395389542470740}
+    - target: {fileID: 518641704279389037, guid: 8a5580b0284cc7b468dc89626f10fa14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Zone_2
+      objectReference: {fileID: 0}
     - target: {fileID: 4820602962673284741, guid: 8a5580b0284cc7b468dc89626f10fa14, type: 3}
       propertyPath: m_Name
       value: MenuPanel
