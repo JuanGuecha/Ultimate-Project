@@ -23,7 +23,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (obj != null)
             player = obj.transform;
 
-        if (SceneManager.GetActiveScene().name == "JefePruebas")//Para que reviva en la escena de jefe
+        if (SceneManager.GetActiveScene().name == "Jefe Pruebas")//Para que reviva en la escena de jefe
         {
             StartCoroutine(Revive());
         }

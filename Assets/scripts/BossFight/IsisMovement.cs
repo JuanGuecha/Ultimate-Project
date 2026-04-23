@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IsisMovement : MonoBehaviour
@@ -11,6 +12,8 @@ public class IsisMovement : MonoBehaviour
     private int currentIndex = 0;
 
     private SpriteRenderer[] renderers;
+    public bool canMove;
+
 
     void Start()
     {
@@ -24,11 +27,34 @@ public class IsisMovement : MonoBehaviour
 
         renderers = GetComponentsInChildren<SpriteRenderer>();
 
-        StartCoroutine(TeleportLoop());
+
+
+
+
     }
 
-    IEnumerator TeleportLoop()
+    public void MoveTo(Transform target)
     {
+        if (!canMove) return;
+        Vector2 direction = target.position - transform.position;
+
+        transform.position = Vector2.MoveTowards(transform.position, target.position, 5f * Time.deltaTime);
+
+        Flip(direction.x);
+    }
+
+
+    void Flip(float x)
+    {
+        if (x > 0)
+            transform.localScale = new Vector3(-0.7f, 0.7f, 0.7f);
+        else
+            transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+    }
+
+    public IEnumerator TeleportLoop()
+    {
+        if (canMove) yield break;
         while (true)
         {
             yield return new WaitForSeconds(teleportInterval);
@@ -39,6 +65,7 @@ public class IsisMovement : MonoBehaviour
 
     IEnumerator FadeTeleport()
     {
+        if (canMove) yield break;
         // FADE OUT
         float t = 0f;
         while (t < 1f)

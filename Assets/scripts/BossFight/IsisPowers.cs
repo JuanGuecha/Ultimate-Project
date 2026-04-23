@@ -3,17 +3,43 @@ using UnityEngine;
 
 public class IsisPowers : MonoBehaviour
 {
-    public GameObject boltsPrefab;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public bool casting;
+
+    public Transform boltsParent; // contenedor de los hijos
+
+    private GameObject[] bolts;
+
     void Start()
     {
-        StartCoroutine(Castbolts());
+
+        int count = boltsParent.childCount;
+        bolts = new GameObject[count];
+
+        for (int i = 0; i < count; i++)
+        {
+            bolts[i] = boltsParent.GetChild(i).gameObject;
+        }
+    }
+    public void Melee()
+    {
+        Debug.Log("Melee");
     }
 
-    // Update is called once per frame
-    IEnumerator Castbolts()
+    public IEnumerator Castbolts()
     {
-        yield return new WaitForSeconds(5f);
-        boltsPrefab.SetActive(true);
+
+        if (casting)
+        {
+            for (int i = 0; i < bolts.Length; i += 2)
+            {
+                // activar de 2 en 2
+                bolts[i].SetActive(true);
+
+                if (i + 1 < bolts.Length)
+                    bolts[i + 1].SetActive(true);
+
+                yield return new WaitForSeconds(2f);
+            }
+        }
     }
 }

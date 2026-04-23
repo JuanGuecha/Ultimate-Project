@@ -10,13 +10,17 @@ public class PlayerAttack : MonoBehaviour
     public float rangedCost = 25f;
     private PlayerInput playerInput;
     public GameObject MeeleePoint;
+    public Transform firePoint;
     public LineRenderer lineRenderer;
     public LayerMask enemyLayer;
     public float rayDistance = 10f;
+    Playercontroller playerController;
+
 
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
+        playerController = GetComponent<Playercontroller>();
 
 
     }
@@ -51,7 +55,7 @@ public class PlayerAttack : MonoBehaviour
         {
             Debug.Log("Ataque a distancia");
 
-            float directionX = transform.localScale.x > 0 ? 1 : -1;
+            float directionX = playerController.facingDirection;
             Vector2 direction = new Vector2(directionX, 0);
 
             StartCoroutine(ShootRay(direction));
@@ -65,7 +69,7 @@ public class PlayerAttack : MonoBehaviour
 
     IEnumerator ShootRay(Vector2 direction)
     {
-        Vector2 origin = transform.position;
+        Vector2 origin = firePoint.position;
 
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, rayDistance, enemyLayer);
 
@@ -102,6 +106,9 @@ public class PlayerAttack : MonoBehaviour
 
     IEnumerator MeleeRoutine()
     {
+        Vector3 pos = MeeleePoint.transform.localPosition;
+        pos.x = Mathf.Abs(pos.x) * playerController.facingDirection;
+        MeeleePoint.transform.localPosition = pos;
         MeeleePoint.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         MeeleePoint.SetActive(false);

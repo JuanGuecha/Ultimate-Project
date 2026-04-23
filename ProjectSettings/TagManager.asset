@@ -3,17 +3,29 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Door_1
+  - Wall
+  - Platform
+  - Sensor_1
+  - Enemy
+  - Bat
+  - MovingPlatform
+  - EnemyAttack
+  - Ground
+  - MovilPlatform
+  - Saliente
+  - Placa
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
+  - enemies
+  - isis
+  - traps
   - 
   - 
   - 
