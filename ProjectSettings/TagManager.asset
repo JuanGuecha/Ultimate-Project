@@ -10,14 +10,19 @@ TagManager:
   - Saliente
   - Enemy
   - Placa
-  - Zona2
-  - Zona3
-  - Zona4
   - Zona5
   - Door_1
   - Sensor_1
   - Bat
   - MovilPlatform
+  - SpawnMain
+  - Zona_2_1
+  - Zona_3_1
+  - Zona_2_2
+  - Zona_3_2
+  - Zona_1_2
+  - Zona_4_1
+  - Zona_4_2
   layers:
   - Default
   - TransparentFX
@@ -73,6 +78,9 @@ TagManager:
   - name: Tilemap Deco
     uniqueID: 1996411853
     locked: 0
+  - name: Arbusto
+    uniqueID: 2974652129
+    locked: 0
   - name: Tilemap Details
     uniqueID: 1520984173
     locked: 0
@@ -87,6 +95,9 @@ TagManager:
     locked: 0
   - name: Tramps
     uniqueID: 42406697
+    locked: 0
+  - name: FireBlast
+    uniqueID: 2731530509
     locked: 0
   m_RenderingLayers:
   - Default

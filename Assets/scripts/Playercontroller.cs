@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class Playercontroller : MonoBehaviour
@@ -16,6 +18,12 @@ public class Playercontroller : MonoBehaviour
     public PhysicsMaterial2D frictionMaterial;
     SpriteRenderer spriteRenderer;
 
+    SceneController sceneController;
+
+    public string spawnTag;
+
+    public bool isDead;
+
     [Header("Animaciones")]
     Animator animator;
     void Awake()
@@ -27,6 +35,7 @@ public class Playercontroller : MonoBehaviour
         rb.sharedMaterial = defaultMaterial;
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
 
     }
     void Start()
@@ -41,6 +50,11 @@ public class Playercontroller : MonoBehaviour
         // Movimiento e Input: Polling cada frame para respuesta inmediata
         move();
         jump();
+        if (isDead)
+        {
+            death();
+        }
+
         
         // Actualizamos parámetros del Animator
         // 'isGround' controla si estamos tocando el suelo (Idle/Run balance)
@@ -159,6 +173,24 @@ public class Playercontroller : MonoBehaviour
         Debug.Log("Moving downwards, ignoring collision");
         Physics2D.IgnoreCollision(playerCollider, currentPlatform.GetComponent<Collider2D>(), true);
         isIgnoringCollision = true;
+    }
+    void death()
+    {
+
+        Debug.Log("Player has died.");
+        StartCoroutine(Respawn());
+        // Aquí iría la lógica de muerte, como detectar colisiones con enemigos o trampas
+        // Por ejemplo, si colisionamos con un objeto etiquetado como "Enemy", podríamos reiniciar la escena o activar una animación de muerte.
+    }
+    IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(2f); // Esperamos un momento para mostrar la animación de muerte o dar feedback al jugador
+        //animacion
+        //Fade in
+        Debug.Log($"Respawning at checkpoint: '{spawnTag}'");
+        transform.position = GameObject.FindGameObjectWithTag(spawnTag).transform.position; // Teletransportamos al jugador al checkpoint guardado
+        isDead = false; // Reseteamos el estado de muerte para permitir que el jugador vuelva a jugar
+        Debug.Log("Player has been respawned.");
     }
 }
 
