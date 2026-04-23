@@ -16,9 +16,8 @@ public class Playercontroller : MonoBehaviour
     PhysicsMaterial2D physicsMaterial2D;
     public PhysicsMaterial2D defaultMaterial;
     public PhysicsMaterial2D frictionMaterial;
-    SpriteRenderer spriteRenderer;
-
-    SceneController sceneController;
+  
+    public float knockbackForce;
 
     public string spawnTag;
 
@@ -34,8 +33,7 @@ public class Playercontroller : MonoBehaviour
         isGrounded = true;
         rb.sharedMaterial = defaultMaterial;
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
+        
 
     }
     void Start()
@@ -191,6 +189,11 @@ public class Playercontroller : MonoBehaviour
         transform.position = GameObject.FindGameObjectWithTag(spawnTag).transform.position; // Teletransportamos al jugador al checkpoint guardado
         isDead = false; // Reseteamos el estado de muerte para permitir que el jugador vuelva a jugar
         Debug.Log("Player has been respawned.");
+    }
+    public void ApplyKnockback(Vector2 hitDirection)
+    {
+        // Aplica una fuerza de retroceso al jugador en la dirección opuesta al impacto // Puedes ajustar este valor para hacer el retroceso más o menos fuerte
+        rb.AddForce(-hitDirection * knockbackForce, ForceMode2D.Impulse);
     }
 }
 
