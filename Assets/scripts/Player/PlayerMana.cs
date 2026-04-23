@@ -62,4 +62,10 @@ public class PlayerMana : MonoBehaviour
         Debug.Log("No hay suficiente mana");
         return false;
     }
+
+    public void RestoreMana()
+    {
+        currentMana = maxMana;
+        manaUI.UpdateMana(currentMana);
+    }
 }

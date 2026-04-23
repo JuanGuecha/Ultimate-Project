@@ -17,6 +17,7 @@ TagManager:
   - Zona2
   - Door_1
   - Sensor_1
+  - Bat
   layers:
   - Default
   - TransparentFX
@@ -65,6 +66,9 @@ TagManager:
     locked: 0
   - name: Luces
     uniqueID: 3457039843
+    locked: 0
+  - name: Decorado
+    uniqueID: 3565528365
     locked: 0
   m_RenderingLayers:
   - Default

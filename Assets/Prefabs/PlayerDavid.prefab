@@ -314,6 +314,7 @@ MonoBehaviour:
   defaultMaterial: {fileID: 6200000, guid: 088c35d3c74ee5942835aca6321a5f2c, type: 2}
   frictionMaterial: {fileID: 6200000, guid: 94e692115e4f2ab41a4cbe4aca24e868, type: 2}
   attackpoint: {fileID: 5114037220794687793}
+  animator: {fileID: 0}
 --- !u!114 &5006032328017723566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,7 +556,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 5532215527476411447}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   rayDistance: 10
 --- !u!114 &397589923743448540
 MonoBehaviour:
