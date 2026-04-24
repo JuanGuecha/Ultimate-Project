@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Data;
+using System.ComponentModel;
 
 public class AdvisorPlatform2 : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class AdvisorPlatform2 : MonoBehaviour
     private Coroutine flashCoroutine;
     public int timeActive; //Influye en la intermitencia y el tiempo que la plataforma permanece inactiva
     private Collider2D collider2d;
+    public int numTrigger;
     int TouchPlayer = 1;
     public float timeColor; 
     void Start()
@@ -22,7 +24,7 @@ public class AdvisorPlatform2 : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             
-            if (TouchPlayer == 3 && flashCoroutine == null)
+            if (TouchPlayer == numTrigger && flashCoroutine == null)
             {   
                 flashCoroutine = StartCoroutine(DeletePlataform());
                 Debug.Log("Player colisionó con la plataforma, iniciando cambio de color y temporizador");

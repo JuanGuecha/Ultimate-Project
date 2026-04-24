@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class DamagePendulum : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public int damageAmount;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("Player"))
+        {
+            Vector2 direction = (collision.transform.position - transform.position).normalized; 
+            if(collision.TryGetComponent(out PlayerHealth playerHealth))
+            {
+                playerHealth.TakeDamage(damageAmount, direction);
+            }
+        }
     }
+
 }
