@@ -17,7 +17,7 @@ public class CheckPoint : MonoBehaviour
         {
             Debug.Log("Checkpoint alcanzado por el jugador.");
             checkpointTag = gameObject.tag; // Asumiendo que el checkpoint tiene un tag específico como "SpawnPoint_1_1"
-            playerController.spawnTag = checkpointTag; // Asigna el tag del checkpoint al jugador
+            //playerController.spawnTag = checkpointTag; // Asigna el tag del checkpoint al jugador
         }
     }
 }

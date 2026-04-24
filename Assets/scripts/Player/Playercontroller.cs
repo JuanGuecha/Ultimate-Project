@@ -23,12 +23,13 @@ public class Playercontroller : MonoBehaviour
     private Transform hijo;
 
     [Header("Animaciones")]
-    [SerializeField] Animator animator;
+    Animator animator;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerCollider = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
         isGrounded = true;
         rb.sharedMaterial = defaultMaterial;
 

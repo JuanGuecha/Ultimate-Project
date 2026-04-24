@@ -12,10 +12,11 @@ public class DamagePendulum : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Vector2 direction = (collision.transform.position - transform.position).normalized; 
+            
+            //Vector2 direction = (collision.transform.position - transform.position).normalized; 
             if(collision.TryGetComponent(out PlayerHealth playerHealth))
             {
-                playerHealth.TakeDamage(damageAmount, direction);
+                playerHealth.TakeDamage(damageAmount);
             }
         }
     }

@@ -104,7 +104,6 @@ GameObject:
   - component: {fileID: 4027081990414633883}
   - component: {fileID: 2369817724375720882}
   - component: {fileID: 3753547679044360176}
-  - component: {fileID: 2518332835640985280}
   m_Layer: 0
   m_Name: FireNavi
   m_TagString: Untagged
@@ -195,7 +194,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1520984173
-  m_SortingLayer: 4
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6798858839370094118, guid: ae9eae252343a5544bb74cf3b5fe7767, type: 3}
@@ -254,19 +253,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.59, y: 2.21}
   m_EdgeRadius: 0
---- !u!114 &2518332835640985280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754173076256741869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ccdb1e8e587f3499d0bfff6efccbcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FireNavi
-  triggerFire: {fileID: 8428293365973661877}
 --- !u!1 &2895628904943249047
 GameObject:
   m_ObjectHideFlags: 0
