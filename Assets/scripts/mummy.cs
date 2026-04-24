@@ -7,6 +7,7 @@ public class mummy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     public Sprite mummySprite; // Asigna el sprite de la momia en el inspector
+    NavMeshAgent navMeshAgent;
 
 
     void Start()
@@ -16,9 +17,13 @@ public class mummy : MonoBehaviour
         agent.stoppingDistance = 5f;
         agent.speed = 8f;
         agent.acceleration = 30;
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
 
         // Busca automáticamente al player por tag
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+
 
         if (player != null)
         {

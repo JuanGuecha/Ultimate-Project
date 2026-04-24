@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="ManaBackground" style="flex-grow: 1; position: absolute; width: 500px; height: 150px; background-image: url(&quot;project://database/Assets/UI/ManaBar-Background.png?fileID=2800000&amp;guid=60a44c3c0b6a62f488cfda58de2452e7&amp;type=3#ManaBar-Background&quot;); top: 224px; left: 0; overflow: hidden; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;">
+        <ui:VisualElement name="ManaMask" style="flex-grow: 1; position: absolute; width: 101%; height: 100%;">
+            <ui:VisualElement name="ManaFill" style="flex-grow: 1; position: absolute; width: 500px; height: 100%; background-image: url(&quot;project://database/Assets/UI/ManaBar-Fill.png?fileID=2800000&amp;guid=f0a31d6e6a5e18a44ae30dac246eb31e&amp;type=3#ManaBar-Fill&quot;); overflow: hidden;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

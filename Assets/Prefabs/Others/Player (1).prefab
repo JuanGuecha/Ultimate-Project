@@ -157,8 +157,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Playercontroller
   movespeed: 10
   jumpforce: 25
+  isGrounded: 0
   defaultMaterial: {fileID: 6200000, guid: 088c35d3c74ee5942835aca6321a5f2c, type: 2}
   frictionMaterial: {fileID: 6200000, guid: 94e692115e4f2ab41a4cbe4aca24e868, type: 2}
+  attackpoint: {fileID: 0}
 --- !u!114 &5572881525748136829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +176,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 8972296305034823763}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
 --- !u!120 &8972296305034823763
 LineRenderer:
   serializedVersion: 3
@@ -221,7 +223,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1389083435
-  m_SortingLayer: 5
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Positions:
@@ -331,7 +333,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1389083435
-  m_SortingLayer: 5
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4732102564977410229, guid: 39b0fad8b4f591444971d847690b448c, type: 3}
