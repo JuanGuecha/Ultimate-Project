@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
-using Unity.VectorGraphics;
+using System.Text.RegularExpressions;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class Playercontroller : MonoBehaviour
@@ -12,19 +13,17 @@ public class Playercontroller : MonoBehaviour
     public float jumpforce;
     bool isIgnoringCollision;
     GameObject currentPlatform;
-    bool isGrounded;
+    public bool isGrounded;
     PhysicsMaterial2D physicsMaterial2D;
     public PhysicsMaterial2D defaultMaterial;
     public PhysicsMaterial2D frictionMaterial;
-  
-    public float knockbackForce;
-
-    public string spawnTag;
-
-    public bool isDead;
+    bool getingKnockback = false;
+    public float facingDirection = 1f;
+    [SerializeField]
+    private Transform hijo;
 
     [Header("Animaciones")]
-    Animator animator;
+    [SerializeField] Animator animator;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -32,8 +31,7 @@ public class Playercontroller : MonoBehaviour
         playerCollider = GetComponent<Collider2D>();
         isGrounded = true;
         rb.sharedMaterial = defaultMaterial;
-        animator = GetComponent<Animator>();
-        
+
 
     }
     void Start()
@@ -48,40 +46,38 @@ public class Playercontroller : MonoBehaviour
         // Movimiento e Input: Polling cada frame para respuesta inmediata
         move();
         jump();
-        if (isDead)
-        {
-            death();
-        }
 
-        
         // Actualizamos parámetros del Animator
         // 'isGround' controla si estamos tocando el suelo (Idle/Run balance)
         animator.SetBool("isGround", isGrounded);
-        
-        // El parámetro 'VerticalVelocity' ayuda a diferenciar entre subir (salto) y caer (gravedad)
-        // Similar a cómo los animadores de Disney exageran la caída para dar sensación de peso
-    
+
+
     }
 
     void move()
     {
-        // Nota: Asegúrate de que en el Input Action la acción se llame exactamente "Move"
-        Vector2 moveVector = playerInput.actions["Move"].ReadValue<Vector2>();
-        
+
+        if (getingKnockback) return;
+        Vector2 moveVector = playerInput.actions["move"].ReadValue<Vector2>();
         if (playerInput.actions["Move"].IsPressed())
         {
-            animator.SetFloat("Horizontal", Math.Abs(moveVector.x));
+            animator.SetFloat("Speed", Math.Abs(moveVector.x));
             rb.linearVelocity = new Vector2(moveVector.x * movespeed, rb.linearVelocity.y);
         }
-        else
+        else if (getingKnockback == false)
         {
-            animator.SetFloat("Horizontal", 0);
+            animator.SetFloat("Speed", 0);
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
 
         if (moveVector.y < -0.5f && currentPlatform != null)
         {
             GetDownPlatform();
+        }
+        if (moveVector.x != 0)
+        {
+            facingDirection = Mathf.Sign(moveVector.x);
+            Flip();
         }
     }
 
@@ -95,10 +91,10 @@ public class Playercontroller : MonoBehaviour
                 // Disparamos un Trigger para el salto (mejor que bool si la animación es corta)
                 // Es como en los juegos de lucha, una acción instantánea que activa una secuencia
                 animator.SetTrigger("Jump");
-                
+
                 isGrounded = false; // "Forzamos" la salida del suelo para la animación
                 animator.SetBool("isGround", false);
-                
+
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpforce);
             }
         }
@@ -106,26 +102,22 @@ public class Playercontroller : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Usamos tags para identificar superficies. Ground, Platform y Saliente reinician el salto.
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Saliente"))
+        // Usamos tags para identificar superficies. Ground, Platform
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = true;
             // Al tocar suelo, reseteamos el trigger por si acaso y activamos isGround
             animator.SetBool("isGround", true);
             animator.ResetTrigger("Jump");
+            transform.SetParent(null);
         }
-
-        if (collision.gameObject.CompareTag("Platform") && !isIgnoringCollision)
+        if (collision.gameObject.CompareTag("MovingPlatform") && !isIgnoringCollision)
         {
             currentPlatform = collision.gameObject;
             // Parentesco dinámico: Como en los niveles de trenes en Uncharted, 
             // nos pegamos a la plataforma para heredar su inercia.
             transform.SetParent(collision.transform);
-        }
-
-        if (collision.gameObject.CompareTag("Saliente"))
-        {
-            rb.sharedMaterial = frictionMaterial;
+            isGrounded = true;
         }
 
         if (currentPlatform != null)
@@ -140,19 +132,14 @@ public class Playercontroller : MonoBehaviour
     {
         // Al salir de una superficie de apoyo, marcamos que ya no estamos en suelo.
         // Esto activará la animación de "caída" o "vuelo" si la velocidad vertical es negativa.
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Saliente"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = false;
             animator.SetBool("isGround", false);
-            
+
             if (collision.gameObject.CompareTag("Platform"))
             {
                 transform.SetParent(null);
-            }
-
-            if (collision.gameObject.CompareTag("Saliente"))
-            {
-                rb.sharedMaterial = defaultMaterial;
             }
         }
     }
@@ -162,7 +149,19 @@ public class Playercontroller : MonoBehaviour
         {
             isGrounded = true;
             currentPlatform = collision.gameObject;
-
+        }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyAttack"))
+        {
+            float direction = transform.position.x < collision.transform.position.x ? -1 : 1;
+            Vector2 knockbackDirection = new Vector2(direction * 5f, 2f);
+            StartCoroutine(knockback(knockbackDirection.normalized));
         }
     }
 
@@ -172,28 +171,23 @@ public class Playercontroller : MonoBehaviour
         Physics2D.IgnoreCollision(playerCollider, currentPlatform.GetComponent<Collider2D>(), true);
         isIgnoringCollision = true;
     }
-    void death()
+    IEnumerator knockback(Vector2 direction)
     {
+        getingKnockback = true;
+        Debug.Log("knockback");
+        rb.linearVelocity = Vector2.zero;
+        rb.linearVelocity = new Vector2(direction.x * 10f, 5f);
+        yield return new WaitForSeconds(0.5f);
+        getingKnockback = false;
+    }
+    void Flip()
+    {
+        if (hijo == null) return;
 
-        Debug.Log("Player has died.");
-        StartCoroutine(Respawn());
-        // Aquí iría la lógica de muerte, como detectar colisiones con enemigos o trampas
-        // Por ejemplo, si colisionamos con un objeto etiquetado como "Enemy", podríamos reiniciar la escena o activar una animación de muerte.
+        Vector3 scale = hijo.localScale;
+        scale.x = facingDirection * Mathf.Abs(scale.x);
+        hijo.localScale = scale;
     }
-    IEnumerator Respawn()
-    {
-        yield return new WaitForSeconds(2f); // Esperamos un momento para mostrar la animación de muerte o dar feedback al jugador
-        //animacion
-        //Fade in
-        Debug.Log($"Respawning at checkpoint: '{spawnTag}'");
-        transform.position = GameObject.FindGameObjectWithTag(spawnTag).transform.position; // Teletransportamos al jugador al checkpoint guardado
-        isDead = false; // Reseteamos el estado de muerte para permitir que el jugador vuelva a jugar
-        Debug.Log("Player has been respawned.");
-    }
-    public void ApplyKnockback(Vector2 hitDirection)
-    {
-        // Aplica una fuerza de retroceso al jugador en la dirección opuesta al impacto // Puedes ajustar este valor para hacer el retroceso más o menos fuerte
-        rb.AddForce(-hitDirection * knockbackForce, ForceMode2D.Impulse);
-    }
+
 }
 
