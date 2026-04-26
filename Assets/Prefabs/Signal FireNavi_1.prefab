@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &50096221155130382
+--- !u!1 &2755119645393582355
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6854411644170677623}
-  - component: {fileID: 8428293365973661877}
-  - component: {fileID: 7782894435197230626}
+  - component: {fileID: 4335793007299642289}
+  - component: {fileID: 7239880106135617508}
+  - component: {fileID: 8416669155565632355}
   m_Layer: 0
   m_Name: Trigger FireNavi
   m_TagString: Untagged
@@ -18,41 +18,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6854411644170677623
+--- !u!4 &4335793007299642289
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 50096221155130382}
+  m_GameObject: {fileID: 2755119645393582355}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -16.89, y: -5.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4699736762190380598}
+  m_Father: {fileID: 4860631654369784487}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8428293365973661877
+--- !u!114 &7239880106135617508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 50096221155130382}
+  m_GameObject: {fileID: 2755119645393582355}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f5046a8a5dcade4e9c6eae8c86c7d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerFire
   IsActive: 0
---- !u!61 &7782894435197230626
+--- !u!61 &8416669155565632355
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 50096221155130382}
+  m_GameObject: {fileID: 2755119645393582355}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -92,7 +92,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &754173076256741869
+--- !u!1 &3452897490346070672
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,10 +100,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4773918158216468789}
-  - component: {fileID: 4027081990414633883}
-  - component: {fileID: 2369817724375720882}
-  - component: {fileID: 3753547679044360176}
+  - component: {fileID: 4860631654369784487}
+  m_Layer: 0
+  m_Name: Signal FireNavi_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4860631654369784487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3452897490346070672}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -76.3153, y: 6.3303, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5147879320788536692}
+  - {fileID: 4335793007299642289}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5771606355434629927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5147879320788536692}
+  - component: {fileID: 2362988178512480855}
+  - component: {fileID: 5483313403279398183}
+  - component: {fileID: 8250985509800129070}
+  - component: {fileID: 1133295011049773939}
   m_Layer: 0
   m_Name: FireNavi
   m_TagString: Untagged
@@ -111,29 +145,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4773918158216468789
+--- !u!4 &5147879320788536692
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754173076256741869}
+  m_GameObject: {fileID: 5771606355434629927}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.47, y: -4.73, z: 0}
+  m_LocalPosition: {x: -11.38, y: -4.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4699736762190380598}
+  m_Father: {fileID: 4860631654369784487}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &4027081990414633883
+--- !u!95 &2362988178512480855
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754173076256741869}
+  m_GameObject: {fileID: 5771606355434629927}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 90401cc101df23a4aa2087a0226d8ef4, type: 2}
@@ -148,14 +182,14 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!212 &2369817724375720882
+--- !u!212 &5483313403279398183
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754173076256741869}
+  m_GameObject: {fileID: 5771606355434629927}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -207,13 +241,13 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &3753547679044360176
+--- !u!61 &8250985509800129070
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754173076256741869}
+  m_GameObject: {fileID: 5771606355434629927}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -253,36 +287,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.59, y: 2.21}
   m_EdgeRadius: 0
---- !u!1 &2895628904943249047
-GameObject:
+--- !u!114 &1133295011049773939
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4699736762190380598}
-  m_Layer: 0
-  m_Name: Signal FireNavi
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4699736762190380598
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2895628904943249047}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.89165, y: 1.81065, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4773918158216468789}
-  - {fileID: 6854411644170677623}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 5771606355434629927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb0901a7ee93d8468f76cf17340e525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireNavi_2
+  triggerFire: {fileID: 7239880106135617508}

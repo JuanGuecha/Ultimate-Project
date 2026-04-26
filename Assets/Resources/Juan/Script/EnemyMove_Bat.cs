@@ -71,9 +71,5 @@ public class EnemyMove_Bat : MonoBehaviour
             currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
         }
     }
-    void Die()
-    {
-        death = true;
-        Destroy(gameObject);
-    }
+ 
 }
