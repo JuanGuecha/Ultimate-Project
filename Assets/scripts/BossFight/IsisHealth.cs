@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class IsisHealth : MonoBehaviour
 {
     public float health = 400f;
     public Animator IsisAnim;
+    [SerializeField] VideoPlayer videoplayer;
     void Start()
     {
         IsisAnim.SetFloat("Health", health);
@@ -22,5 +24,6 @@ public class IsisHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
+        videoplayer.Play();
     }
 }

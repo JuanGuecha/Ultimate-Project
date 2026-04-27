@@ -1,89 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
----
-!u!78 &1
+--- !u!78 &1
 TagManager:
   serializedVersion: 3
   tags:
-    - Door_1
-    - Wall
-    - Platform
-    - Sensor_1
-    - Enemy
-    - Bat
-    - MovingPlatform
-    - EnemyAttack
-    - Ground
-    - MovilPlatform
-    - Saliente
-    - Placa
-    - Isis
-    - Traps
-    - MovingPlatform
-    - MovilPlatform
-    - EnemyAttack
-    - Enemy
-    - Platform
-    - Zona3
-    - Ground
-    - Wall
-    - Zona4
-    - Zona5
-    - Zona2
-    - Door_1
-    - Sensor_1
-    - Bat
+  - Ground
+  - Traps
+  - EnemyAttack
+  - Enemy
+  - Isis
+  - Platform
+  - MovingPlatform
   layers:
-    - Default
-    - TransparentFX
-    - Ignore Raycast
-    - Player
-    - Water
-    - UI
-    - enemies
-    - isis
-    - traps
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
-    - name: Default
-      uniqueID: 0
-      locked: 0
-    - name: Fondo
-      uniqueID: 1067843839
-      locked: 0
-    - name: limits
-      uniqueID: 4235584617
-      locked: 0
-    - name: Tramps
-      uniqueID: 231637415
-      locked: 0
-    - name: Luces
-      uniqueID: 3457039843
-      locked: 0
-    - name: Decorado
-      uniqueID: 3565528365
-      locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
   m_RenderingLayers:
-    - Default
+  - Default
