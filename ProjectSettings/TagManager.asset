@@ -23,6 +23,8 @@ TagManager:
   - Zona_1_2
   - Zona_4_1
   - Zona_4_2
+  - MovingPlatform
+  - EnemyAttack
   layers:
   - Default
   - TransparentFX
@@ -72,20 +74,11 @@ TagManager:
   - name: Fondo_4
     uniqueID: 1988914615
     locked: 0
-  - name: Enemigos
-    uniqueID: 3088288969
-    locked: 0
   - name: Tilemap Deco
     uniqueID: 1996411853
     locked: 0
   - name: Arbusto
     uniqueID: 2974652129
-    locked: 0
-  - name: Tilemap Details
-    uniqueID: 1520984173
-    locked: 0
-  - name: Player
-    uniqueID: 1389083435
     locked: 0
   - name: Ground
     uniqueID: 2761602431
@@ -93,8 +86,26 @@ TagManager:
   - name: Pendulo
     uniqueID: 2198306539
     locked: 0
+  - name: Tilemap Fondo
+    uniqueID: 516114419
+    locked: 0
   - name: Tramps
     uniqueID: 42406697
+    locked: 0
+  - name: Tilemap Details
+    uniqueID: 1520984173
+    locked: 0
+  - name: TilemapDeco
+    uniqueID: 1025171505
+    locked: 0
+  - name: TilemapBridge
+    uniqueID: 1779300277
+    locked: 0
+  - name: Enemigos
+    uniqueID: 3088288969
+    locked: 0
+  - name: Player
+    uniqueID: 1389083435
     locked: 0
   - name: FireBlast
     uniqueID: 2731530509

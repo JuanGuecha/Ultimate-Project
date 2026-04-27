@@ -142,12 +142,12 @@ TextureImporter:
       name: puente borde1 tile verde _0
       rect:
         serializedVersion: 2
-        x: 92
+        x: 107
         y: 0
-        width: 408
-        height: 215
+        width: 393
+        height: 208
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -164,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: dfa1ecada8790a74ab819c4ec210006d
     internalID: 0
     vertices: []
     indices: 

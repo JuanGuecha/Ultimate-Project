@@ -142,38 +142,16 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: puente borde2 tile verde _0
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 223
-        width: 13
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3f8c5293808c10cc0800000000000000
-      internalID: -3746493477351470861
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: puente borde2 tile verde _1
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 313
-        height: 215
+        width: 299
+        height: 206
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 1, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -189,7 +167,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5282b5e9a08fff54581ef9d2c276b051
     internalID: 0
     vertices: []
     indices: 
