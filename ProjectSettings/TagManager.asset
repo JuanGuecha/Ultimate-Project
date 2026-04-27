@@ -16,6 +16,8 @@ TagManager:
   - MovilPlatform
   - Saliente
   - Placa
+  - Isis
+  - Traps
   layers:
   - Default
   - TransparentFX

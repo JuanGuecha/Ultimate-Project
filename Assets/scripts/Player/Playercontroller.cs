@@ -159,7 +159,7 @@ public class Playercontroller : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("EnemyAttack"))
         {
-            float direction = transform.position.x < collision.transform.position.x ? -1 : 1;
+            float direction = transform.position.x < collision.transform.parent.position.x ? -1 : 1;
             Vector2 knockbackDirection = new Vector2(direction * 5f, 2f);
             StartCoroutine(knockback(knockbackDirection.normalized));
         }

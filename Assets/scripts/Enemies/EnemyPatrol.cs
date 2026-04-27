@@ -1,4 +1,5 @@
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,7 +30,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             direction = 1;
         }
-        else
+        else if (goingTowards == PointB.transform)
         {
             direction = -1;
         }

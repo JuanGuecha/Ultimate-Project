@@ -15,6 +15,8 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask enemyLayer;
     public float rayDistance = 10f;
     Playercontroller playerController;
+    [SerializeField] Animator animator;
+    public IsisHealth isisHealth;
 
 
     void Start()
@@ -23,17 +25,23 @@ public class PlayerAttack : MonoBehaviour
         playerController = GetComponent<Playercontroller>();
 
 
+
     }
     void Update()
     {
         if (playerInput.actions["MeleeAttack"].triggered)
         {
+            animator.SetTrigger("Attack");
             MeleeAttack();
+
+
         }
 
         if (playerInput.actions["RangedAttack"].triggered)
         {
+            animator.SetTrigger("Special");
             RangedAttack();
+
         }
     }
 
@@ -69,6 +77,7 @@ public class PlayerAttack : MonoBehaviour
 
     IEnumerator ShootRay(Vector2 direction)
     {
+        yield return new WaitForSeconds(0.7f);
         Vector2 origin = firePoint.position;
 
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, rayDistance, enemyLayer);
@@ -82,6 +91,10 @@ public class PlayerAttack : MonoBehaviour
             if (hit.collider.CompareTag("Enemy"))
             {
                 Destroy(hit.collider.gameObject);
+            }
+            if (hit.collider.CompareTag("Isis"))
+            {
+                isisHealth.isisTakeDamage(15f);
             }
         }
         else
@@ -106,6 +119,7 @@ public class PlayerAttack : MonoBehaviour
 
     IEnumerator MeleeRoutine()
     {
+        yield return new WaitForSeconds(0.5f);
         Vector3 pos = MeeleePoint.transform.localPosition;
         pos.x = Mathf.Abs(pos.x) * playerController.facingDirection;
         MeeleePoint.transform.localPosition = pos;

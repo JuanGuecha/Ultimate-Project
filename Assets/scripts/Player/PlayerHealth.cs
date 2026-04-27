@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+
 public class PlayerHealth : MonoBehaviour
 {
     public int maxLives = 3;
@@ -10,15 +11,19 @@ public class PlayerHealth : MonoBehaviour
 
     private bool canTakeDamage = true;
     public float damageCooldown = 1f;
+    [SerializeField] Animator animator;
+
 
     void Start()
     {
         currentLives = maxLives;
         healthUI.UpdateHealth(currentLives);
+
     }
 
     public void TakeDamage(int amount)
     {
+        animator.SetTrigger("Hurt");
         if (!canTakeDamage) return;
 
         currentLives -= amount;
@@ -49,6 +54,11 @@ public class PlayerHealth : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("EnemyAttack"))
+        {
+            Debug.Log("Recibio daño ");
+            TakeDamage(1);
+        }
+        if (collision.gameObject.CompareTag("Traps"))
         {
             Debug.Log("Recibio daño ");
             TakeDamage(1);

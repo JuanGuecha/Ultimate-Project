@@ -1,5 +1,6 @@
+using System;
 using System.Collections;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class IsisMovement : MonoBehaviour
@@ -13,6 +14,10 @@ public class IsisMovement : MonoBehaviour
 
     private SpriteRenderer[] renderers;
     public bool canMove;
+    public bool isTeleporting;
+
+    public GameObject JumpPoint;
+    public GameObject CastingRayPoint;
 
 
     void Start()
@@ -54,8 +59,7 @@ public class IsisMovement : MonoBehaviour
 
     public IEnumerator TeleportLoop()
     {
-        if (canMove) yield break;
-        while (true)
+        while (isTeleporting)
         {
             yield return new WaitForSeconds(teleportInterval);
 
@@ -65,7 +69,6 @@ public class IsisMovement : MonoBehaviour
 
     IEnumerator FadeTeleport()
     {
-        if (canMove) yield break;
         // FADE OUT
         float t = 0f;
         while (t < 1f)
@@ -99,4 +102,14 @@ public class IsisMovement : MonoBehaviour
             sr.color = c;
         }
     }
+    public void movingToJump()
+    {
+        MoveTo(JumpPoint.transform);
+    }
+
+    public void movingToCastingRay()
+    {
+        MoveTo(CastingRayPoint.transform);
+    }
+
 }
