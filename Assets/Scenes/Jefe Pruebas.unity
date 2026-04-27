@@ -1240,24 +1240,6 @@ Transform:
   - {fileID: 38521027}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &223708928 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5074100185517686259, guid: cb29655da970d0546a8754f6429cb55a, type: 3}
-  m_PrefabInstance: {fileID: 6322171621044788030}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &223708933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223708928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a2b7538a5d4794183db0b24045a83d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyDetection
-  isisHealth: {fileID: 994191579}
 --- !u!1 &297773005
 GameObject:
   m_ObjectHideFlags: 0
@@ -9780,10 +9762,6 @@ PrefabInstance:
       propertyPath: healthUI
       value: 
       objectReference: {fileID: 485722917}
-    - target: {fileID: 3227374564941778423, guid: cb29655da970d0546a8754f6429cb55a, type: 3}
-      propertyPath: maxLives
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3287821101080388269, guid: cb29655da970d0546a8754f6429cb55a, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -9807,10 +9785,6 @@ PrefabInstance:
     - target: {fileID: 4693323942928638251, guid: cb29655da970d0546a8754f6429cb55a, type: 3}
       propertyPath: m_Layer
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5074100185517686259, guid: cb29655da970d0546a8754f6429cb55a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5118539549142427154, guid: cb29655da970d0546a8754f6429cb55a, type: 3}
       propertyPath: m_Layer
@@ -9884,6 +9858,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.76099336
       objectReference: {fileID: 0}
+    - target: {fileID: 7444044065157727154, guid: cb29655da970d0546a8754f6429cb55a, type: 3}
+      propertyPath: isisHealth
+      value: 
+      objectReference: {fileID: 994191579}
     - target: {fileID: 7779054375585254049, guid: cb29655da970d0546a8754f6429cb55a, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -9916,16 +9894,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2356116904527091259, guid: cb29655da970d0546a8754f6429cb55a, type: 3}
-    - {fileID: 1313707562848492809, guid: cb29655da970d0546a8754f6429cb55a, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 751669906745889680, guid: cb29655da970d0546a8754f6429cb55a, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5074100185517686259, guid: cb29655da970d0546a8754f6429cb55a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 223708933}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb29655da970d0546a8754f6429cb55a, type: 3}
 --- !u!95 &6322171621044788031 stripped
 Animator:
