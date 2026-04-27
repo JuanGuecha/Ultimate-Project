@@ -29,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentLives < 0) // Asegura que las vidas no sean negativas
             currentLives = 0; 
 
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.playerDamage);
         healthUI.UpdateHealth(currentLives);
 
         if (currentLives > 0)
@@ -43,6 +44,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.playerDeath);
         StartCoroutine(DieCoroutine()); // Inicia la corrutina de muerte
     }
     IEnumerator DieCoroutine()

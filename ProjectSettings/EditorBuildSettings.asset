@@ -11,10 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Christian.unity
     guid: aba8bcae25e32254aa7fa3f26d52b52d
+  - enabled: 1
+    path: Assets/Scenes/Christian Pruebas.unity
+    guid: 4bb48f456b12d524aba9113b5e704165
   - enabled: 0
     path: Assets/Scenes/ScenesManager/Zone_1.unity
     guid: 5becf22c04d7a9d4b8b160a129f6fcbd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ScenesManager/Zone_2.unity
     guid: a0aabe7310022f04081ac84572be7ce9
   - enabled: 0

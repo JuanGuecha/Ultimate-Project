@@ -39,6 +39,8 @@ public class ScarabChest : MonoBehaviour
 
         Debug.Log("Cofre abierto. Fragmento obtenido.");
 
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.chestOpen);
+
         // Espera un momento para que se vea el cofre abierto
         yield return new WaitForSeconds(openDelay);
 

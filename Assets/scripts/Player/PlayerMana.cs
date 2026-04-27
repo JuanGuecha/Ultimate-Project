@@ -60,6 +60,7 @@ public class PlayerMana : MonoBehaviour
         }
 
         Debug.Log("No hay suficiente mana");
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.noMana);
         return false;
     }
 

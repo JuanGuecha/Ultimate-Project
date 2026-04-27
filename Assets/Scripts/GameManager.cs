@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +15,13 @@ public class GameManager : MonoBehaviour
 
     public Transform centralHubSpawn; // 🔥 punto al que vuelve tras recoger fragmento
     public PlayerRespawn playerRespawn; // Referencia al PlayerRespawn para teletransportar al jugador al centro
+    private PlayerInput playerInput; // Referencia al PlayerInput para detectar la tecla de pausa
+
+    [Header("Paneles UI")]
+    public GameObject gameOverPanel;
+    public GameObject pausePanel;
+
+    private bool paused;
 
     private void Awake()
     {
@@ -28,10 +37,51 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        playerInput = GetComponent<PlayerInput>();
         if (scarabUI != null)
         {
             scarabUI.UpdateScarabUI(collectedScarabFragments);
         }
+        Time.timeScale = 1;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (paused)
+            {
+                Resume();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+    }
+
+    public void PauseGame()
+    {
+            paused = true;
+            pausePanel.SetActive(true);
+            Time.timeScale = 0;
+    }
+
+    public void Resume()
+    {
+            paused = false;
+            pausePanel.SetActive(false);
+            Time.timeScale = 1;
+    }
+
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1f;
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayMenuMusic();
+        }// 🔥 importante
+        SceneManager.LoadScene("Christian"); // tu escena
     }
 
     public void CollectScarabFragment()
