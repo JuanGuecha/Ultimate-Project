@@ -14,6 +14,7 @@ public class PlayerRespawn : MonoBehaviour
     public void SetCheckpoint(Vector3 newCheckpoint)
     {
         currentCheckpoint = newCheckpoint; // Actualiza el checkpoint a la nueva posición
+        Debug.Log("Checkpoint actual actualizado a: " + currentCheckpoint);
     }
 
     public void Respawn()

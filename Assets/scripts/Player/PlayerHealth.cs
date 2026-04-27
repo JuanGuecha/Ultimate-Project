@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
 
     public HealthUI healthUI;
 
-    private PlayerRespawn playerRespawn;
+    private GameManager gameManager;
 
     private bool canTakeDamage = true;
     public float damageCooldown = 1f;
@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentLives = maxLives;
         healthUI.UpdateHealth(currentLives);
-        playerRespawn = GetComponent<PlayerRespawn>();
+        gameManager = FindAnyObjectByType<GameManager>();
     }
 
     public void TakeDamage(int amount)
@@ -45,24 +45,9 @@ public class PlayerHealth : MonoBehaviour
     public void Die()
     {
         AudioManager.Instance.PlaySFX(AudioManager.Instance.playerDeath);
-        StartCoroutine(DieCoroutine()); // Inicia la corrutina de muerte
+        gameManager.ShowGameOver(); // Muestra el panel de game over
     }
-    IEnumerator DieCoroutine()
-    {
 
-        
-        Debug.Log("Player murió");
-        yield return new WaitForSeconds(2f); // Espera 2 segundos antes de respawnear
-        // 🔥 Respawn en checkpoint
-        if (playerRespawn != null)
-        {
-            playerRespawn.Respawn(); // Llama al método Respawn del PlayerRespawn
-        }
-        else
-        {
-            Debug.LogError("No hay PlayerRespawn en el Player");
-        }
-    }
     IEnumerator DamageCooldown()
     {
         canTakeDamage = false;

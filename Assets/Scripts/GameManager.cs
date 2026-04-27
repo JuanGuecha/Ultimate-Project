@@ -42,6 +42,12 @@ public class GameManager : MonoBehaviour
         {
             scarabUI.UpdateScarabUI(collectedScarabFragments);
         }
+
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false);
+        }
+            
         Time.timeScale = 1;
     }
 
@@ -82,6 +88,33 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.PlayMenuMusic();
         }// 🔥 importante
         SceneManager.LoadScene("Christian"); // tu escena
+    }
+
+    public void ShowGameOver()
+    {
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
+        
+        Time.timeScale = 0f;
+        Debug.Log("GAME OVER");
+        AudioManager.Instance.musicSource.Stop(); // Detiene la música de fondo actual
+        AudioManager.Instance.PlayGameOverMusic(); // Reproduce el sonido de game over
+    }
+
+    public void RetryFromCheckpoint()
+    {
+        Time.timeScale = 1f;
+
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(false);
+
+        if (playerRespawn != null)
+            playerRespawn.Respawn();
+
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayGameplayMusic();
     }
 
     public void CollectScarabFragment()

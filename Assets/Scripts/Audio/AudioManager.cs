@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     [Header("Menu and Gameplay Music")]
     public AudioClip menuMusic;
     public AudioClip gameplayMusic;
+    public AudioClip gameOverMusic;
 
     [Header("Sound Effects")]
     public AudioClip playerDamage;
@@ -57,6 +58,11 @@ public class AudioManager : MonoBehaviour
     public void PlayGameplayMusic()
     {
         PlayMusic(gameplayMusic);
+    }
+
+    public void PlayGameOverMusic()
+    {
+        PlayMusic(gameOverMusic);
     }
 
     public void PlayMusic(AudioClip clip)
