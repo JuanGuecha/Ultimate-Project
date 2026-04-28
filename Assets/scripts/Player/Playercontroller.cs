@@ -21,6 +21,7 @@ public class Playercontroller : MonoBehaviour
     public float facingDirection = 1f;
     [SerializeField]
     private Transform hijo;
+    AudioManager audioManager;
 
     [Header("Animacione")]
     [SerializeField] Animator animator;
@@ -29,6 +30,7 @@ public class Playercontroller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerCollider = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
         isGrounded = true;
         rb.sharedMaterial = defaultMaterial;
 
