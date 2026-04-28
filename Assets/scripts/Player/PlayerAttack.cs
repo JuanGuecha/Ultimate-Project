@@ -83,6 +83,7 @@ public class PlayerAttack : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, rayDistance, enemyLayer);
 
         Debug.DrawRay(origin, direction * rayDistance, Color.red, 1f);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.rangedAttack);
 
         if (hit.collider != null)
         {
@@ -124,6 +125,7 @@ public class PlayerAttack : MonoBehaviour
         pos.x = Mathf.Abs(pos.x) * playerController.facingDirection;
         MeeleePoint.transform.localPosition = pos;
         MeeleePoint.SetActive(true);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.meleeAttack);
         yield return new WaitForSeconds(0.5f);
         MeeleePoint.SetActive(false);
     }

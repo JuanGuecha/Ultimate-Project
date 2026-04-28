@@ -94,6 +94,7 @@ public class Playercontroller : MonoBehaviour
 
                 isGrounded = false; // "Forzamos" la salida del suelo para la animación
                 animator.SetBool("isGround", false);
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.jumpMovement);
 
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpforce);
             }

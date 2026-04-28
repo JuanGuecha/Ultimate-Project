@@ -21,12 +21,14 @@ public class PapiroInteractable : MonoBehaviour
     void OpenTutorial()
     {
         tutorialPanel.SetActive(true);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.papyrusInteraction);
         Time.timeScale = 0f; // pausa el juego
     }
 
     void CloseTutorial()
     {
         tutorialPanel.SetActive(false);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.papyrusInteraction);
         Time.timeScale = 1f; // reanuda el juego
     }
 
