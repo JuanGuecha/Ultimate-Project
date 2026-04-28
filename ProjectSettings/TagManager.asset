@@ -4,20 +4,13 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - MovingPlatform
-  - MovilPlatform
+  - Ground
+  - Traps
   - EnemyAttack
   - Enemy
+  - Isis
   - Platform
-  - Zona3
-  - Ground
-  - Wall
-  - Zona4
-  - Zona5
-  - Zona2
-  - Door_1
-  - Sensor_1
-  - Bat
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX
@@ -54,21 +47,6 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Fondo
-    uniqueID: 1067843839
-    locked: 0
-  - name: limits
-    uniqueID: 4235584617
-    locked: 0
-  - name: Tramps
-    uniqueID: 231637415
-    locked: 0
-  - name: Luces
-    uniqueID: 3457039843
-    locked: 0
-  - name: Decorado
-    uniqueID: 3565528365
     locked: 0
   m_RenderingLayers:
   - Default

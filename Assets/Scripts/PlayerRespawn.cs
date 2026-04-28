@@ -5,6 +5,7 @@ public class PlayerRespawn : MonoBehaviour
     private Vector3 currentCheckpoint;
     public PlayerHealth playerHealth;
     public PlayerMana playerMana;
+    public GameObject bastet;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class PlayerRespawn : MonoBehaviour
             rb.angularVelocity = 0f; // Detiene cualquier rotación residual
         }
         transform.position = currentCheckpoint; // Teletransporta al jugador a la posición del checkpoint
+        bastet.transform.position = currentCheckpoint;
 
         if (playerHealth != null)
             playerHealth.RestoreHealth(); // Restaura la salud del jugador al máximo

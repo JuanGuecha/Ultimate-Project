@@ -17,9 +17,10 @@ public class Playercontroller : MonoBehaviour
     PhysicsMaterial2D physicsMaterial2D;
     public PhysicsMaterial2D defaultMaterial;
     public PhysicsMaterial2D frictionMaterial;
-    public GameObject attackpoint;
     bool getingKnockback = false;
-
+    public float facingDirection = 1f;
+    [SerializeField]
+    private Transform hijo;
 
     [Header("Animaciones")]
     [SerializeField] Animator animator;
@@ -30,6 +31,7 @@ public class Playercontroller : MonoBehaviour
         playerCollider = GetComponent<Collider2D>();
         isGrounded = true;
         rb.sharedMaterial = defaultMaterial;
+
 
     }
     void Start()
@@ -54,6 +56,7 @@ public class Playercontroller : MonoBehaviour
 
     void move()
     {
+
         if (getingKnockback) return;
         Vector2 moveVector = playerInput.actions["move"].ReadValue<Vector2>();
         if (playerInput.actions["Move"].IsPressed())
@@ -71,15 +74,10 @@ public class Playercontroller : MonoBehaviour
         {
             GetDownPlatform();
         }
-        if (moveVector.x < 0)
+        if (moveVector.x != 0)
         {
-
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if (moveVector.x > 0)
-        {
-
-            transform.localScale = new Vector3(1, 1, 1);
+            facingDirection = Mathf.Sign(moveVector.x);
+            Flip();
         }
     }
 
@@ -162,7 +160,7 @@ public class Playercontroller : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("EnemyAttack"))
         {
-            float direction = transform.position.x < collision.transform.position.x ? -1 : 1;
+            float direction = transform.position.x < collision.transform.parent.position.x ? -1 : 1;
             Vector2 knockbackDirection = new Vector2(direction * 5f, 2f);
             StartCoroutine(knockback(knockbackDirection.normalized));
         }
@@ -182,6 +180,14 @@ public class Playercontroller : MonoBehaviour
         rb.linearVelocity = new Vector2(direction.x * 10f, 5f);
         yield return new WaitForSeconds(0.5f);
         getingKnockback = false;
+    }
+    void Flip()
+    {
+        if (hijo == null) return;
+
+        Vector3 scale = hijo.localScale;
+        scale.x = facingDirection * Mathf.Abs(scale.x);
+        hijo.localScale = scale;
     }
 
 }

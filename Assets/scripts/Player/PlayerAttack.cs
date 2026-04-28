@@ -10,13 +10,20 @@ public class PlayerAttack : MonoBehaviour
     public float rangedCost = 25f;
     private PlayerInput playerInput;
     public GameObject MeeleePoint;
+    public Transform firePoint;
     public LineRenderer lineRenderer;
     public LayerMask enemyLayer;
     public float rayDistance = 10f;
+    Playercontroller playerController;
+    [SerializeField] Animator animator;
+    public IsisHealth isisHealth;
+
 
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
+        playerController = GetComponent<Playercontroller>();
+
 
 
     }
@@ -24,12 +31,17 @@ public class PlayerAttack : MonoBehaviour
     {
         if (playerInput.actions["MeleeAttack"].triggered)
         {
+            animator.SetTrigger("Attack");
             MeleeAttack();
+
+
         }
 
         if (playerInput.actions["RangedAttack"].triggered)
         {
+            animator.SetTrigger("Special");
             RangedAttack();
+
         }
     }
 
@@ -51,7 +63,7 @@ public class PlayerAttack : MonoBehaviour
         {
             Debug.Log("Ataque a distancia");
 
-            float directionX = transform.localScale.x > 0 ? 1 : -1;
+            float directionX = playerController.facingDirection;
             Vector2 direction = new Vector2(directionX, 0);
 
             StartCoroutine(ShootRay(direction));
@@ -65,7 +77,8 @@ public class PlayerAttack : MonoBehaviour
 
     IEnumerator ShootRay(Vector2 direction)
     {
-        Vector2 origin = transform.position;
+        yield return new WaitForSeconds(0.7f);
+        Vector2 origin = firePoint.position;
 
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, rayDistance, enemyLayer);
 
@@ -79,6 +92,10 @@ public class PlayerAttack : MonoBehaviour
             if (hit.collider.CompareTag("Enemy"))
             {
                 Destroy(hit.collider.gameObject);
+            }
+            if (hit.collider.CompareTag("Isis"))
+            {
+                isisHealth.isisTakeDamage(15f);
             }
         }
         else
@@ -103,6 +120,10 @@ public class PlayerAttack : MonoBehaviour
 
     IEnumerator MeleeRoutine()
     {
+        yield return new WaitForSeconds(0.5f);
+        Vector3 pos = MeeleePoint.transform.localPosition;
+        pos.x = Mathf.Abs(pos.x) * playerController.facingDirection;
+        MeeleePoint.transform.localPosition = pos;
         MeeleePoint.SetActive(true);
         AudioManager.Instance.PlaySFX(AudioManager.Instance.meleeAttack);
         yield return new WaitForSeconds(0.5f);

@@ -14,9 +14,6 @@ public class mummy : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         agent = GetComponent<NavMeshAgent>();
-        agent.stoppingDistance = 5f;
-        agent.speed = 8f;
-        agent.acceleration = 30;
         navMeshAgent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -28,7 +25,6 @@ public class mummy : MonoBehaviour
         if (player != null)
         {
             target = player.transform;
-            spriteRenderer.sprite = mummySprite;
         }
         else
         {

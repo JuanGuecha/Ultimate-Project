@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+
 public class PlayerHealth : MonoBehaviour
 {
     public int maxLives = 3;
@@ -12,22 +13,27 @@ public class PlayerHealth : MonoBehaviour
 
     private bool canTakeDamage = true;
     public float damageCooldown = 1f;
+    [SerializeField] Animator animator;
+
 
     void Start()
     {
         currentLives = maxLives;
         healthUI.UpdateHealth(currentLives);
         gameManager = FindAnyObjectByType<GameManager>();
+
+        // playerRespawn = GetComponent<PlayerRespawn>();
     }
 
     public void TakeDamage(int amount)
     {
-        if (!canTakeDamage) return; // Si el jugador está en cooldown de daño, no recibe daño
+        animator.SetTrigger("Hurt");
+        if (!canTakeDamage) return;
 
         currentLives -= amount;
 
         if (currentLives < 0) // Asegura que las vidas no sean negativas
-            currentLives = 0; 
+            currentLives = 0;
 
         AudioManager.Instance.PlaySFX(AudioManager.Instance.playerDamage);
         healthUI.UpdateHealth(currentLives);
@@ -59,6 +65,11 @@ public class PlayerHealth : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("EnemyAttack"))
+        {
+            Debug.Log("Recibio daño ");
+            TakeDamage(1);
+        }
+        if (collision.gameObject.CompareTag("Traps"))
         {
             Debug.Log("Recibio daño ");
             TakeDamage(1);
