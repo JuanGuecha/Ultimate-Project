@@ -22,7 +22,7 @@ public class Playercontroller : MonoBehaviour
     [SerializeField]
     private Transform hijo;
 
-    [Header("Animaciones")]
+    [Header("Animacione")]
     [SerializeField] Animator animator;
     void Awake()
     {
