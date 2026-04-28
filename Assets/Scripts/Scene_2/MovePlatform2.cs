@@ -9,7 +9,7 @@ public class MovePlatform2 : MonoBehaviour
     [SerializeField] TriggerPlatform triggerPlatform;
 
 
-    
+
     private Transform[] waypoints;
 
 
@@ -42,15 +42,16 @@ public class MovePlatform2 : MonoBehaviour
         // 🚀 MOVIMIENTO CONSTANTE
         // La plataforma siempre intenta ir hacia el targetIndex actual
         transform.position = Vector2.MoveTowards(
-            transform.position, 
-            waypoints[targetIndex].position, 
+            transform.position,
+            waypoints[targetIndex].position,
             speed * Time.fixedDeltaTime
         );
     }
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         if (other.CompareTag("Player"))
         {
-            
+
         }
     }
 

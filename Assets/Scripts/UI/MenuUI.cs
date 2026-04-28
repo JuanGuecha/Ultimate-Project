@@ -20,20 +20,22 @@ public class MenuUI : MonoBehaviour
             AudioManager.Instance.musicSource.Stop();
 
         // ▶️ Activa y reproduce video
-        introVideoPlayer.gameObject.SetActive(true);
-        introVideoPlayer.loopPointReached += OnVideoFinished;
-        introVideoPlayer.Play();
-    }
-
-    private void OnVideoFinished(VideoPlayer vp)
-    {
-        introVideoPlayer.loopPointReached -= OnVideoFinished;
-
-        // 🎵 Inicia música del gameplay
-        if (AudioManager.Instance != null)
-            AudioManager.Instance.PlayGameplayMusic();
-
-        // 🚀 Carga escena
+        /*  introVideoPlayer.gameObject.SetActive(true);
+          introVideoPlayer.loopPointReached += OnVideoFinished;
+          introVideoPlayer.Play();*/
         SceneManager.LoadScene(escenaDestino);
+        AudioManager.Instance.PlayGameplayMusic();
     }
+
+    /* private void OnVideoFinished(VideoPlayer vp)
+     {
+         introVideoPlayer.loopPointReached -= OnVideoFinished;
+
+         // 🎵 Inicia música del gameplay
+         if (AudioManager.Instance != null)
+             AudioManager.Instance.PlayGameplayMusic();
+
+         // 🚀 Carga escena
+         SceneManager.LoadScene(escenaDestino);
+     }*/
 }

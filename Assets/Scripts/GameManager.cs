@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     [Header("Paneles UI")]
     public GameObject gameOverPanel;
     public GameObject pausePanel;
+    [SerializeField] private GameObject scarabdoor;
+    [SerializeField] private GameObject steps;
 
     private bool paused;
 
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour
         {
             gameOverPanel.SetActive(false);
         }
-            
+
         Time.timeScale = 1;
     }
 
@@ -68,16 +70,16 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-            paused = true;
-            pausePanel.SetActive(true);
-            Time.timeScale = 0;
+        paused = true;
+        pausePanel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void Resume()
     {
-            paused = false;
-            pausePanel.SetActive(false);
-            Time.timeScale = 1;
+        paused = false;
+        pausePanel.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void GoToMainMenu()
@@ -96,7 +98,7 @@ public class GameManager : MonoBehaviour
         {
             gameOverPanel.SetActive(true);
         }
-        
+
         Time.timeScale = 0f;
         Debug.Log("GAME OVER");
         AudioManager.Instance.musicSource.Stop(); // Detiene la música de fondo actual
@@ -133,13 +135,14 @@ public class GameManager : MonoBehaviour
 
         TeleportToHub(); // Teletransporta al jugador al centro tras recoger un fragmento
 
-        /*if (collectedScarabFragments >= totalScarabFragments)
+        if (collectedScarabFragments >= totalScarabFragments)
         {
-            if (finalDoor != null)
+            if (scarabdoor != null)
             {
-                finalDoor.OpenDoor();
+                scarabdoor.SetActive(true);
+                steps.SetActive(true);
             }
-        }*/
+        }
     }
 
     public void TeleportToHub()

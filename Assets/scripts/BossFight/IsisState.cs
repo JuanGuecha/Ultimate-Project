@@ -27,7 +27,7 @@ public class IsisState : MonoBehaviour
     bool startedTeleport;
 
     // COOLDOWN
-    float castCooldown = 65f;
+    float castCooldown = 45f;
     public float castCooldownTimer;
     bool castedRay = false;
 
@@ -97,7 +97,7 @@ public class IsisState : MonoBehaviour
         {
             ChangeState(State.Dying);
         }
-        if (RayCastingTimer >= RayCastingCooldown && isishealth.health < 300f && castedRay == false)
+        if (RayCastingTimer >= RayCastingCooldown && isishealth.health < 200f && castedRay == false)
         {
 
             ChangeState(State.PreparingRay);

@@ -30,7 +30,7 @@ public class Playercontroller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerCollider = GetComponent<Collider2D>();
-        animator = GetComponent<Animator>();
+
         isGrounded = true;
         rb.sharedMaterial = defaultMaterial;
 

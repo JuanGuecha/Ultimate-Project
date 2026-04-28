@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentLives < 0) // Asegura que las vidas no sean negativas
             currentLives = 0;
 
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.playerDamage);
+//        AudioManager.Instance.PlaySFX(AudioManager.Instance.playerDamage);
         healthUI.UpdateHealth(currentLives);
 
         if (currentLives > 0)

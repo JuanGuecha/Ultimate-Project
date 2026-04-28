@@ -1,127 +1,117 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
----
-!u!78 &1
+--- !u!78 &1
 TagManager:
   serializedVersion: 3
   tags:
-    - Ground
-    - Traps
-    - EnemyAttack
-    - Enemy
-    - Isis
-    - Platform
-    - MovingPlatform
-    - Platform
-    - Wall
-    - Saliente
-    - Enemy
-    - Placa
-    - Zona5
-    - Door_1
-    - Sensor_1
-    - Bat
-    - MovilPlatform
-    - SpawnMain
-    - Zona_2_1
-    - Zona_3_1
-    - Zona_2_2
-    - Zona_3_2
-    - Zona_1_2
-    - Zona_4_1
-    - Zona_4_2
-
+  - Ground
+  - Traps
+  - EnemyAttack
+  - Enemy
+  - Isis
+  - Platform
+  - MovingPlatform
+  - Bat
+  - MovilPlatform
+  - Door_1
+  - Sensor_1
+  - Zona_4_2
+  - Zona_2_1
+  - Zona_2_2
+  - Zona_1_2
+  - Zona_3_1
+  - Wall
+  - Zona_3_2
+  - Zona5
+  - Zona_4_1
+  - SpawnMain
   layers:
-    - Default
-    - TransparentFX
-    - Ignore Raycast
-    - Water
-    - UI
-    - Platfoms
-    - Water
-    - UI
-    - Ground
-    - Enemies
-    - Player
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Player
+  - Water
+  - UI
+  - Enemies
+  - Ground
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
-    - name: Default
-      uniqueID: 0
-      locked: 0
-    - name: Fondo
-      uniqueID: 2294178931
-      locked: 0
-    - name: Fondo_2
-      uniqueID: 3553332739
-      locked: 0
-    - name: Fondo_3
-      uniqueID: 2387281799
-      locked: 0
-    - name: Fondo_4
-      uniqueID: 1988914615
-      locked: 0
-    - name: Tilemap Deco
-      uniqueID: 1996411853
-      locked: 0
-    - name: Arbusto
-      uniqueID: 2974652129
-      locked: 0
-    - name: Ground
-      uniqueID: 2761602431
-      locked: 0
-    - name: Pendulo
-      uniqueID: 2198306539
-      locked: 0
-    - name: Tilemap Fondo
-      uniqueID: 516114419
-      locked: 0
-    - name: Tramps
-      uniqueID: 42406697
-      locked: 0
-    - name: Tilemap Details
-      uniqueID: 1520984173
-      locked: 0
-    - name: TilemapDeco
-      uniqueID: 1025171505
-      locked: 0
-    - name: Enemigos
-      uniqueID: 3088288969
-      locked: 0
-    - name: Player
-      uniqueID: 1389083435
-      locked: 0
-    - name: TilemapBridge
-      uniqueID: 1779300277
-      locked: 0
-    - name: FireBlast
-      uniqueID: 2731530509
-      locked: 0
-    - name: Door Final
-      uniqueID: 4140725499
-      locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Fondo_2
+    uniqueID: 4215764855
+    locked: 0
+  - name: Fondo_3
+    uniqueID: 3174364659
+    locked: 0
+  - name: Fondo_4
+    uniqueID: 455271839
+    locked: 0
+  - name: Tilemap Deco
+    uniqueID: 3865005001
+    locked: 0
+  - name: Arbusto
+    uniqueID: 28365197
+    locked: 0
+  - name: Ground
+    uniqueID: 2385480195
+    locked: 0
+  - name: Pendulo
+    uniqueID: 997468319
+    locked: 0
+  - name: Tilemap Fondo
+    uniqueID: 1387012259
+    locked: 0
+  - name: Pendulo
+    uniqueID: 4275289649
+    locked: 0
+  - name: Tramps
+    uniqueID: 388994185
+    locked: 0
+  - name: Tilemap Details
+    uniqueID: 740463293
+    locked: 0
+  - name: TilemapDeco
+    uniqueID: 3665091983
+    locked: 0
+  - name: Enemigos
+    uniqueID: 1551036839
+    locked: 0
+  - name: Player
+    uniqueID: 3625754909
+    locked: 0
+  - name: TilemapBridge
+    uniqueID: 1903140555
+    locked: 0
+  - name: FireBlast
+    uniqueID: 4068638845
+    locked: 0
+  - name: Door Final
+    uniqueID: 306967005
+    locked: 0
   m_RenderingLayers:
-    - Default
+  - Default

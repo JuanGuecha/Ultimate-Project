@@ -1,15 +1,16 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
 public class IsisHealth : MonoBehaviour
 {
-    public float health = 400f;
+    public float health = 300f;
     public Animator IsisAnim;
     [SerializeField] VideoPlayer videoplayer;
     void Start()
     {
-        videoplayer.loopPointReached += OnVideoEnd;
+        //  videoplayer.loopPointReached += OnVideoEnd;
         IsisAnim.SetFloat("Health", health);
     }
     public void isisTakeDamage(float amount)
@@ -25,11 +26,12 @@ public class IsisHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
-        videoplayer.Play();
+        //videoplayer.Play();
 
     }
     void OnVideoEnd(VideoPlayer vp)
     {
-        videoplayer.gameObject.SetActive(false);
+        // videoplayer.gameObject.SetActive(false);
+        SceneManager.LoadScene("Christian");
     }
 }

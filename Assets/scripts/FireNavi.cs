@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FireNavi : MonoBehaviour
 {
-    [SerializeField] private TriggerFire triggerFire;
+    // [SerializeField] private TriggerFire triggerFire;
     private Animator animator;
     public float timeWait;
     //public float minR, maxR;
@@ -16,21 +16,22 @@ public class FireNavi : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (triggerFire == null){
-            Debug.LogError($"FireNavi: TriggerFire no encontrado en {gameObject.name}");
-        }
+        /*if (triggerFire == null)
+            {
+                Debug.LogError($"FireNavi: TriggerFire no encontrado en {gameObject.name}");
+            }*/
         color = spriteRenderer.color;
         StartCoroutine(ActivateFire());
     }
-        
+
 
     IEnumerator ActivateFire()
     {
-        while (true) 
+        while (true)
         {
             // 1. ESPERA INICIAL (Opcional, para que no empiece nada más cargar la escena)
             //float timeFire = Random.Range(minR, maxR);
-            
+
 
             // 2. INTERMITENCIA (Aviso)
             float flashDuration = 0.15f;

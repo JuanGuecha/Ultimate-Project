@@ -47,7 +47,7 @@ public class PlayerAttack : MonoBehaviour
 
     void MeleeAttack()
     {
-        
+
         if (playerMana.UseMana(meleeCost))
         {
             StartCoroutine(MeleeRoutine());
@@ -56,8 +56,8 @@ public class PlayerAttack : MonoBehaviour
         {
             Debug.Log("No hay suficiente mana");
         }
-        
-  
+
+
     }
 
     void RangedAttack()
