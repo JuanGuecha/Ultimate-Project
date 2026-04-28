@@ -5,52 +5,83 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemyPrefab;
     [SerializeField] private Transform WayPointsParent;
+    private GameObject[] activeEnemy;
+    
+    [SerializeField] private float checkInterval = 2f; 
+    [SerializeField] private float minSpawnDelay = 0.2f; 
+    [SerializeField] private float maxSpawnDelay = 0.8f; 
 
-    [SerializeField] private float minSpawnDelay = 0.2f; // Intervalo de tiempo entre spawns
-    [SerializeField] private float maxSpawnDelay = 0.8f; // Retardo antes de iniciar el spawn
     private Transform[] waypoints;
+    private Camera mainCamera; // Cache de la cámara para optimizar
     public int NumEnemy;
+
     void Start()
     {
-        
-        // Verificar que WayPointsParent no esté vacío o nulo
+        mainCamera = Camera.main; // Guardamos la cámara al inicio
+
         if (WayPointsParent == null)
         {
-            Debug.LogError("SpawnManager: WayPointsParent no asignado(Puntos de Spawn de enemigo)");
+            Debug.LogError("SpawnManager: WayPointsParent no asignado");
             enabled = false;
             return;
         }
-        // Verificar que enemyPrefab no esté vacío o nulo
+
         if (enemyPrefab == null || enemyPrefab.Length == 0)
         {
             Debug.LogError("SpawnManager: enemyPrefab no asignado o vacío");
             enabled = false;
             return;
-        }else
-        {   // Inicializar el array de waypoints con los hijos de WayPointsParent
-            waypoints = new Transform[WayPointsParent.childCount];
-            for (int i = 0; i < WayPointsParent.childCount; i++)
-            {
-                waypoints[i] = WayPointsParent.GetChild(i);
-            }
         }
+
+        waypoints = new Transform[WayPointsParent.childCount];
+        for (int i = 0; i < WayPointsParent.childCount; i++)
+        {
+            waypoints[i] = WayPointsParent.GetChild(i);
+        }
+
+        activeEnemy = new GameObject[waypoints.Length];
         StartCoroutine(SpawnEnemyAtWaypointWithDelay());
     }
+
     IEnumerator SpawnEnemyAtWaypointWithDelay()
     {
-        for (int i = 0; i < waypoints.Length; i++)
+        while (true)
         {
-            float delay = Random.Range(minSpawnDelay, maxSpawnDelay);
-            yield return new WaitForSeconds(delay);
+            for (int i = 0; i < waypoints.Length; i++)
+            {
+                // Primera condición: ¿El slot está vacío?
+                // Segunda condición: ¿El punto de origen está fuera de cámara?
+                if (activeEnemy[i] == null && !IsWaypointVisible(waypoints[i]))
+                {
+                    float delay = Random.Range(minSpawnDelay, maxSpawnDelay);
+                    yield return new WaitForSeconds(delay);
 
-            Vector2 spawnPosition = waypoints[i].position;
-            GameObject prefabToSpawn = enemyPrefab[Random.Range(0, enemyPrefab.Length)];
-            Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+                    // Re-verificamos: Por si el jugador se movió hacia el waypoint durante el delay
+                    if (activeEnemy[i] == null && !IsWaypointVisible(waypoints[i]))
+                    {
+                        Vector2 spawnPosition = waypoints[i].position;
+                        GameObject prefabToSpawn = enemyPrefab[Random.Range(0, enemyPrefab.Length)];
+                        activeEnemy[i] = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
 
-            NumEnemy++;
-            Debug.Log("Enemigo " + NumEnemy + " Spawned en waypoint: " + i + " (delay: " + delay + "s)");
+                        NumEnemy++;
+                        Debug.Log($"Enemigo Spawned fuera de cámara en waypoint: {i}");
+                    }
+                }
+            }
+            yield return new WaitForSeconds(checkInterval);
         }
     }
 
- 
+    /// <summary>
+    /// Comprueba si un Transform es visible por la cámara principal.
+    /// </summary>
+    private bool IsWaypointVisible(Transform wp)
+    {
+        if (mainCamera == null) mainCamera = Camera.main;
+        
+        Vector3 viewPos = mainCamera.WorldToViewportPoint(wp.position);
+        
+        // Si X o Y están entre 0 y 1, y Z es positivo, el objeto está en pantalla.
+        return viewPos.x >= 0f && viewPos.x <= 1f && viewPos.y >= 0f && viewPos.y <= 1f && viewPos.z > 0;
+    }
 }
