@@ -34,7 +34,7 @@ TagManager:
   - UI
   - Ground
   - Enemies
-  - 
+  - Player
   - 
   - 
   - 
@@ -98,17 +98,20 @@ TagManager:
   - name: TilemapDeco
     uniqueID: 1025171505
     locked: 0
-  - name: TilemapBridge
-    uniqueID: 1779300277
-    locked: 0
   - name: Enemigos
     uniqueID: 3088288969
     locked: 0
   - name: Player
     uniqueID: 1389083435
     locked: 0
+  - name: TilemapBridge
+    uniqueID: 1779300277
+    locked: 0
   - name: FireBlast
     uniqueID: 2731530509
+    locked: 0
+  - name: Door Final
+    uniqueID: 4140725499
     locked: 0
   m_RenderingLayers:
   - Default
