@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject steps;
 
     private bool paused;
+    
 
     private void Awake()
     {
@@ -70,9 +71,24 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
+        Debug.Log("PauseGame ejecutado");
+
         paused = true;
         pausePanel.SetActive(true);
+
+        Debug.Log("Self: " + pausePanel.activeSelf);
+        Debug.Log("Hierarchy: " + pausePanel.activeInHierarchy);
+        Transform parent = pausePanel.transform.parent;
+        while (parent != null)
+        {
+            Debug.Log(parent.name + " activo: " + parent.gameObject.activeSelf);
+            parent = parent.parent;
+        }
+
         Time.timeScale = 0;
+
+        
+
     }
 
     public void Resume()
@@ -94,11 +110,13 @@ public class GameManager : MonoBehaviour
 
     public void ShowGameOver()
     {
-        if (gameOverPanel != null)
-        {
-            gameOverPanel.SetActive(true);
-        }
 
+        Debug.Log("GAME OVER llamado");
+        pausePanel.SetActive(false);
+        gameOverPanel.transform.root.gameObject.SetActive(true);
+        gameOverPanel.SetActive(true);
+        Debug.Log("Self: " + gameOverPanel.activeSelf);
+        Debug.Log("Hierarchy: " + gameOverPanel.activeInHierarchy);
         Time.timeScale = 0f;
         Debug.Log("GAME OVER");
         AudioManager.Instance.musicSource.Stop(); // Detiene la música de fondo actual
@@ -159,5 +177,10 @@ public class GameManager : MonoBehaviour
             Debug.Log("Teletransportado al centro tras recoger fragmento");
 
         }
+    }
+
+    public void TestBoton()
+    {
+        Debug.Log("BOTÓN PRESIONADO");
     }
 }
