@@ -927,7 +927,7 @@ GameObject:
   - component: {fileID: 2014513048188666663}
   - component: {fileID: 5976848193062815909}
   - component: {fileID: 8313283029944890985}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Meele
   m_TagString: EnemyAttack
   m_Icon: {fileID: 0}

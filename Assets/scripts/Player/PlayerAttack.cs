@@ -94,7 +94,7 @@ public class PlayerAttack : MonoBehaviour
 
             if (hit.collider.CompareTag("Enemy"))
             {
-                Destroy(hit.collider.gameObject);
+                hit.collider.gameObject.SetActive(false);
             }
             if (hit.collider.CompareTag("Isis"))
             {

@@ -17,11 +17,13 @@ public class Videomanag : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         videoplayer.clip = video;
+
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Player entered the trigger");
             videoplayer.gameObject.SetActive(true);
             videoplayer.Play();
+            Time.timeScale = 0;
         }
     }
 
@@ -31,5 +33,6 @@ public class Videomanag : MonoBehaviour
     {
         videoplayer.gameObject.SetActive(false);
         bastetrender.enabled = true;
+        Time.timeScale = 1;
     }
 }

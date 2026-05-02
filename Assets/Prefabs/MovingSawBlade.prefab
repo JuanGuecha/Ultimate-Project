@@ -206,7 +206,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 42406697
-  m_SortingLayer: 11
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3596048408906164236, guid: 56f341383cb11a542a91760100fca906, type: 3}
@@ -277,7 +277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6588407373574538183, guid: 1df1a2cdb769dc44eabd5ccf92ffd06d, type: 3}
       propertyPath: m_SortingLayer
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6588407373574538183, guid: 1df1a2cdb769dc44eabd5ccf92ffd06d, type: 3}
       propertyPath: m_SortingLayerID
@@ -286,6 +286,10 @@ PrefabInstance:
     - target: {fileID: 7913668387943277743, guid: 1df1a2cdb769dc44eabd5ccf92ffd06d, type: 3}
       propertyPath: m_Name
       value: SawBlade
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176049814256876462, guid: 1df1a2cdb769dc44eabd5ccf92ffd06d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

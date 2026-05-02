@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject steps;
 
     private bool paused;
-    
+
 
     private void Awake()
     {
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 0;
 
-        
+
 
     }
 
