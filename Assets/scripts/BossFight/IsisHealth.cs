@@ -31,7 +31,7 @@ public class IsisHealth : MonoBehaviour
     }
     void OnVideoEnd(VideoPlayer vp)
     {
-        videoplayer.gameObject.SetActive(false);
+        //videoplayer.gameObject.SetActive(false);
         SceneManager.LoadScene("Christian");
     }
 }
