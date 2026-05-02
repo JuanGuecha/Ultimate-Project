@@ -13,12 +13,7 @@ public class TelePlatform : MonoBehaviour
 
     void Start()
     {
-        buoyancy = GetComponent<BuoyancyEffector2D>();
-        if (buoyancy == null)
-        {
-            Debug.LogError($"TelePlatform: No se encontró un BuoyancyEffector2D en {gameObject.name}");
-            enabled = false;
-        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,13 +33,13 @@ public class TelePlatform : MonoBehaviour
     private IEnumerator TeleportRoutine(Transform playerTransform)
     {
         Debug.Log("Teletransportando...");
-        
+
         // 🪄 Aquí podrías añadir una llamada a tu Fade de pantalla o una partícula
         yield return new WaitForSeconds(teleportDelay);
 
         // Accedemos al BuoyancyEffector2D del objeto destino
         BuoyancyEffector2D targetEffector = teleportTarget.GetComponent<BuoyancyEffector2D>();
-        
+
         if (targetEffector != null)
         {
             // Aquí puedes modificar propiedades, por ejemplo la densidad o superficie

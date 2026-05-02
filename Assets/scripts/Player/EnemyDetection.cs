@@ -7,7 +7,7 @@ public class EnemyDetection : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
             Debug.Log(collision.gameObject.name + "Muerto");
         }
         if (collision.CompareTag("Isis"))

@@ -5,13 +5,13 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public float detectionRange = 5f;
     public float speed = 5f;
-
-    private Transform player;
     private Rigidbody2D rb;
     private EnemyPatrol patrol;
     public GameObject attackObject;
     bool isAttacking = false;
     private Animator anim;
+    [SerializeField] Transform player;
+
 
     void Start()
     {
@@ -19,9 +19,7 @@ public class EnemyBehaviour : MonoBehaviour
         patrol = GetComponent<EnemyPatrol>();
         anim = GetComponentInChildren<Animator>();
 
-        GameObject obj = GameObject.FindGameObjectWithTag("Player");
-        if (obj != null)
-            player = obj.transform;
+
 
         if (SceneManager.GetActiveScene().name == "Jefe Pruebas")//Para que reviva en la escena de jefe
         {

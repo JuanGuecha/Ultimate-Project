@@ -5,6 +5,8 @@ public class Videomanag : MonoBehaviour
 {
     [SerializeField] VideoPlayer videoplayer;
     [SerializeField] VideoClip video;
+    [SerializeField] SpriteRenderer bastetrender;
+
     void Start()
     {
         videoplayer.clip = video;
@@ -28,5 +30,6 @@ public class Videomanag : MonoBehaviour
     void OnVideoEnd(VideoPlayer vp)
     {
         videoplayer.gameObject.SetActive(false);
+        bastetrender.enabled = true;
     }
 }
