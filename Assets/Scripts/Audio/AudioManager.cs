@@ -16,9 +16,7 @@ public class AudioManager : MonoBehaviour
     [Header("Sound Effects")]
     public AudioClip playerDamage;
     public AudioClip playerDeath;
-    //public AudioClip fragmentCollected;
     public AudioClip chestOpen;
-    //public AudioClip doorOpen;
     public AudioClip noMana;
     public AudioClip meleeAttack;
     public AudioClip rangedAttack;
@@ -28,6 +26,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip rockFalling;
     public AudioClip torchIgnite;
 
+    [Header("Volumes")]
+    [Range(0f, 1f)] public float masterVolume = 1f;
+    [Range(0f, 1f)] public float sfxVolume = 1f;
+
     private void Awake()
     {
         Debug.Log("AudioManager Awake");
@@ -36,6 +38,11 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
+            sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+
+            ApplyVolumes();
         }
         else
         {
@@ -47,6 +54,39 @@ public class AudioManager : MonoBehaviour
     {
         Debug.Log("AudioManager Start");
         PlayMenuMusic();
+    }
+
+    public void SetMasterVolume(float value)
+    {
+        masterVolume = value;
+        PlayerPrefs.SetFloat("MasterVolume", value);
+        ApplyVolumes();
+    }
+
+    public void SetSFXVolume(float value)
+    {
+        sfxVolume = value;
+        PlayerPrefs.SetFloat("SFXVolume", value);
+        ApplyVolumes();
+    }
+
+    public float GetMasterVolume()
+    {
+        return masterVolume;
+    }
+
+    public float GetSFXVolume()
+    {
+        return sfxVolume;
+    }
+
+    private void ApplyVolumes()
+    {
+        if (musicSource != null)
+            musicSource.volume = masterVolume;
+
+        if (sfxSource != null)
+            sfxSource.volume = masterVolume * sfxVolume;
     }
 
     public void PlayMenuMusic()
@@ -84,13 +124,19 @@ public class AudioManager : MonoBehaviour
         musicSource.Stop();
         musicSource.clip = clip;
         musicSource.loop = true;
-        musicSource.volume = 0.5f;
+
+        // IMPORTANTE: ya no usamos 0.5f fijo
+        musicSource.volume = masterVolume;
+
         musicSource.Play();
     }
 
     public void PlaySFX(AudioClip clip)
     {
         if (clip != null && sfxSource != null)
+        {
+            sfxSource.volume = masterVolume * sfxVolume;
             sfxSource.PlayOneShot(clip);
+        }
     }
 }
