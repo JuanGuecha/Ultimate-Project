@@ -10,38 +10,41 @@ public class MenuUI : MonoBehaviour
     public GameObject botonesMenu;
 
     [Header("Opciones (UI)")]
-    public GameObject volumeSliderGO;   // GameObject del slider
-    public GameObject sfxSliderGO;      // GameObject del slider
+    public GameObject volumeSliderGO;
+    public GameObject sfxSliderGO;
     public GameObject backButtonGO;
 
     [Header("Sliders (componentes)")]
-    public Slider volumeSlider;         // componente Slider
-    public Slider sfxSlider;            // componente Slider
+    public Slider volumeSlider;
+    public Slider sfxSlider;
 
     private string escenaDestino;
 
     private void Start()
     {
+        // Evento cuando termina el video
+        introVideoPlayer.loopPointReached += OnVideoEnd;
+
+        // Asegura configuración correcta
+        introVideoPlayer.playOnAwake = false;
+
         // Oculta opciones al inicio
         volumeSliderGO.SetActive(false);
         sfxSliderGO.SetActive(false);
         backButtonGO.SetActive(false);
 
-        // Inicializa sliders con valores guardados
+        // Inicializa sliders
         if (AudioManager.Instance != null)
         {
             volumeSlider.value = AudioManager.Instance.GetMasterVolume();
             sfxSlider.value = AudioManager.Instance.GetSFXVolume();
         }
 
-        // (Opcional) asegurar que los sliders llamen al AudioManager
-        // Si ya lo hiciste por Inspector, puedes omitir estas líneas:
         volumeSlider.onValueChanged.AddListener(OnMasterVolumeChanged);
         sfxSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
     }
 
-    // --- Botones del menú ---
-
+    // --- BOTÓN PLAY ---
     public void StartGame(string nombreEscena)
     {
         escenaDestino = nombreEscena;
@@ -51,7 +54,25 @@ public class MenuUI : MonoBehaviour
         if (AudioManager.Instance != null)
             AudioManager.Instance.musicSource.Stop();
 
-        // Si no usas video, cargas directo:
+        // 🔥 Activa, prepara y reproduce el video correctamente
+        introVideoPlayer.gameObject.SetActive(true);
+
+        introVideoPlayer.Stop();
+        introVideoPlayer.Prepare();
+
+        introVideoPlayer.prepareCompleted += OnVideoPrepared;
+    }
+
+    // 🔥 Cuando el video está listo
+    void OnVideoPrepared(VideoPlayer vp)
+    {
+        vp.prepareCompleted -= OnVideoPrepared; // evita duplicados
+        vp.Play();
+    }
+
+    // 🔥 Cuando termina el video
+    void OnVideoEnd(VideoPlayer vp)
+    {
         SceneManager.LoadScene(escenaDestino);
 
         if (AudioManager.Instance != null)
@@ -75,7 +96,7 @@ public class MenuUI : MonoBehaviour
         backButtonGO.SetActive(false);
     }
 
-    // --- Callbacks de sliders ---
+    // --- AUDIO ---
 
     public void OnMasterVolumeChanged(float value)
     {
