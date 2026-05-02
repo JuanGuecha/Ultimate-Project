@@ -6,9 +6,9 @@ public class RockMoveWay : MonoBehaviour
     [SerializeField] private Transform waypointParent;
     [SerializeField] private float speed = 2f;
     [SerializeField] private float stoppingDistance = 0.1f;
-    [SerializeField] private float waitTimeAtEnd = 5f;
+    [SerializeField] private float waitTimeAtEnd = 1f;
     TriggerRock triggerRock;
-    
+
     private Transform[] waypoints;
     private int currentWaypointIndex = 0;
     private Rigidbody2D rb;
@@ -17,7 +17,7 @@ public class RockMoveWay : MonoBehaviour
 
     void Start()
     {
-        triggerRock = GameObject.Find("TriggerRock").GetComponent<TriggerRock>();   
+        triggerRock = GameObject.Find("TriggerRock").GetComponent<TriggerRock>();
         if (waypointParent == null)
         {
             Debug.LogError("RockMoveWay: waypointParent no asignado");
@@ -42,14 +42,14 @@ public class RockMoveWay : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+
         if (waypoints.Length == 0) return;
 
         if (triggerRock.rockTriggered)
         {
             MoveToWaypoints();
         }
-           
+
     }
 
     void MoveToWaypoints()
@@ -57,10 +57,10 @@ public class RockMoveWay : MonoBehaviour
         if (isWaiting) return;
 
         Transform target = waypoints[currentWaypointIndex];
-        
+
         // 🎯 Calcula dirección hacia el waypoint
         Vector2 direction = (target.position - transform.position).normalized;
-        
+
         // ⚙️ Aplica velocidad (permite física + rotación)
         rb.linearVelocity = direction * speed;
 
@@ -98,14 +98,14 @@ public class RockMoveWay : MonoBehaviour
         isWaiting = true;
         Debug.Log($"⏳ Roca en el final. Esperando {waitTimeAtEnd} segundos...");
         yield return new WaitForSeconds(waitTimeAtEnd);
-        
+
         isReturning = true;
         isWaiting = false;
         currentWaypointIndex = waypoints.Length - 2; // Apunta al penúltimo para empezar el regreso
-        
+
         // Si solo hay un waypoint o algo raro, evitamos errores
         if (currentWaypointIndex < 0) currentWaypointIndex = 0;
-        
+
         Debug.Log("🔄 Iniciando regreso al primer waypoint");
     }
 }

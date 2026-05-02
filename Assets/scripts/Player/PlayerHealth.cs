@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentLives < 0) // Asegura que las vidas no sean negativas
             currentLives = 0;
 
-//        AudioManager.Instance.PlaySFX(AudioManager.Instance.playerDamage);
+        //        AudioManager.Instance.PlaySFX(AudioManager.Instance.playerDamage);
         healthUI.UpdateHealth(currentLives);
 
         if (currentLives > 0)
@@ -73,6 +73,14 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.Log("Recibio daño ");
             TakeDamage(1);
+        }
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Rock"))
+        {
+
+            TakeDamage(3);
         }
     }
 

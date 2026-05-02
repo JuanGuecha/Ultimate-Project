@@ -15,8 +15,10 @@ public class mummy : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         agent = GetComponent<NavMeshAgent>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        agent.enabled = true;
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
 
 
         if (player != null)

@@ -5,12 +5,18 @@ public class Videomanag : MonoBehaviour
 {
     [SerializeField] VideoPlayer videoplayer;
     [SerializeField] VideoClip video;
-    [SerializeField] SpriteRenderer bastetrender;
+
+    [SerializeField] GameObject teleplats;
+    [SerializeField] mummy followplayer;
+    [SerializeField] GameObject dialogo;
+
+
 
     void Start()
     {
         videoplayer.clip = video;
         videoplayer.loopPointReached += OnVideoEnd;
+
     }
 
 
@@ -24,6 +30,7 @@ public class Videomanag : MonoBehaviour
             videoplayer.gameObject.SetActive(true);
             videoplayer.Play();
             Time.timeScale = 0;
+            gameObject.SetActive(false);
         }
     }
 
@@ -32,7 +39,9 @@ public class Videomanag : MonoBehaviour
     void OnVideoEnd(VideoPlayer vp)
     {
         videoplayer.gameObject.SetActive(false);
-        bastetrender.enabled = true;
+        teleplats.SetActive(true);
+        followplayer.enabled = true;
+        dialogo.SetActive(true);
         Time.timeScale = 1;
     }
 }

@@ -25,6 +25,7 @@ TagManager:
   - Zona5
   - Zona_4_1
   - SpawnMain
+  - Rock
   layers:
   - Default
   - TransparentFX
