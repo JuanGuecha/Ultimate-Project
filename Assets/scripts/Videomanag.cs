@@ -10,6 +10,8 @@ public class Videomanag : MonoBehaviour
     [SerializeField] mummy followplayer;
     [SerializeField] GameObject dialogo;
 
+    [SerializeField] GameObject UIplayer;
+
 
 
     void Start()
@@ -27,10 +29,15 @@ public class Videomanag : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Player entered the trigger");
+            // Desactivamos la UI del jugador al iniciar el video 🎬✨
+            if(UIplayer != null) UIplayer.SetActive(false);
             videoplayer.gameObject.SetActive(true);
             videoplayer.Play();
             Time.timeScale = 0;
+
             gameObject.SetActive(false);
+            
+                      
         }
     }
 
@@ -39,6 +46,8 @@ public class Videomanag : MonoBehaviour
     void OnVideoEnd(VideoPlayer vp)
     {
         videoplayer.gameObject.SetActive(false);
+        //Reactivamos la UI al terminar el video 📺✨
+        if (UIplayer != null) UIplayer.SetActive(true);
         teleplats.SetActive(true);
         followplayer.enabled = true;
         dialogo.SetActive(true);

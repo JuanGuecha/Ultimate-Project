@@ -3,17 +3,16 @@ using System.Collections;
 
 public class TelePlatform : MonoBehaviour
 {
-
+    // 💡 Teletransportador básico con tiempo de espera y desactivación temporal del collider destino para evitar loops.
     [SerializeField] private Transform teleportTarget;
     [SerializeField] private Collider2D TargetCollider;
     [SerializeField] private float teleportDelay = 0.5f;
-    [SerializeField] private BuoyancyEffector2D buoyancy;
-    public float TiempoBuoyancyEffect = 0.5f; // Tiempo que el efecto de buoyancy estará activo después de teletransportar
-
+    public float TiempoColliderActive; // Tiempo que el collider del destino estará desactivado para evitar teletransportes inmediatos de vuelta
+    [SerializeField] private Animator   animator;
 
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,24 +32,16 @@ public class TelePlatform : MonoBehaviour
     private IEnumerator TeleportRoutine(Transform playerTransform)
     {
         Debug.Log("Teletransportando...");
-
+        
         // 🪄 Aquí podrías añadir una llamada a tu Fade de pantalla o una partícula
         yield return new WaitForSeconds(teleportDelay);
-
-        // Accedemos al BuoyancyEffector2D del objeto destino
-        BuoyancyEffector2D targetEffector = teleportTarget.GetComponent<BuoyancyEffector2D>();
-
-        if (targetEffector != null)
-        {
-            // Aquí puedes modificar propiedades, por ejemplo la densidad o superficie
-            Debug.Log($"Accediendo al Buoyancy de {teleportTarget.name}: Nivel de superficie {targetEffector.surfaceLevel}");
-        }
         playerTransform.position = teleportTarget.position;
-        TargetCollider.enabled = false; // Desactivamos el collider del destino para evitar colisiones no deseadas al llegar
-        targetEffector.enabled = true; // Activamos el Buoyancy del destino para que el jugador flote al llegar
-        yield return new WaitForSeconds(TiempoBuoyancyEffect); // Pequeña espera para asegurar que el jugador se posicione antes de desactivar el Buoyancy del origen
-        targetEffector.enabled = false;
-        TargetCollider.enabled = true; // Desactivamos el Buoyancy del destino para que el jugador no flote indefinidamente
-        Debug.Log("¡Viaje completado!");
+        Debug.Log("¡Teletransportación completa!");
+        TargetCollider.enabled = false; // Desactivamos el collider del destino para evitar volver a teletransportar al jugador inmediatamente
+        animator.SetBool("PortalState", true);
+        yield return new WaitForSeconds(TiempoColliderActive); // Esperamos un tiempo antes de reactivar el collider 
+        TargetCollider.enabled = true; // Reactivamos el collider del destino
+        animator.SetBool("PortalState", false);
+        Debug.Log("¡Plataforma de teletransporte activada!");
     }
 }

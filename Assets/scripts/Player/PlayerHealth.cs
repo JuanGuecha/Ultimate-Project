@@ -74,15 +74,20 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Recibio daño ");
             TakeDamage(1);
         }
+        if (collision.gameObject.CompareTag("Rock"))
+        {
+            Debug.Log("Recibio daño ");
+            TakeDamage(3);
+        }
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    /*void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Rock"))
         {
 
             TakeDamage(3);
         }
-    }
+    }*/
 
     public void RestoreHealth()
     {

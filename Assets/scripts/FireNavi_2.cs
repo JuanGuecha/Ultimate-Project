@@ -14,7 +14,7 @@ public class FireNavi_2 : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && triggerFire.IsActive)
         {
             animator.SetTrigger("On");
         }
