@@ -15,10 +15,8 @@ public class mummy : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         agent = GetComponent<NavMeshAgent>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        agent.enabled = true;
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-
 
 
         if (player != null)
@@ -36,5 +34,13 @@ public class mummy : MonoBehaviour
         if (target == null) return;
 
         agent.SetDestination(target.transform.position);
+        if (target.position.x < transform.position.x - 0.1f)
+        {
+            spriteRenderer.flipX = true; // Mirar Izquierda
+        }
+        else if (target.position.x > transform.position.x + 0.1f)
+        {
+            spriteRenderer.flipX = false; // Mirar Derecha
+        }
     }
 }

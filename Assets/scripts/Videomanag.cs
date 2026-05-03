@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Video;
 
 public class Videomanag : MonoBehaviour
@@ -11,6 +12,8 @@ public class Videomanag : MonoBehaviour
     [SerializeField] GameObject dialogo;
 
     [SerializeField] GameObject UIplayer;
+
+    [SerializeField] NavMeshAgent Bastet;
 
 
 
@@ -49,7 +52,7 @@ public class Videomanag : MonoBehaviour
         //Reactivamos la UI al terminar el video 📺✨
         if (UIplayer != null) UIplayer.SetActive(true);
         teleplats.SetActive(true);
-        followplayer.enabled = true;
+        Bastet.enabled = true;
         dialogo.SetActive(true);
         Time.timeScale = 1;
     }
