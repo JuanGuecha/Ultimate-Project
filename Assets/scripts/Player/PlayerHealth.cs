@@ -79,6 +79,11 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Recibio daño ");
             TakeDamage(3);
         }
+        if (collision.gameObject.CompareTag("Spines"))
+        {
+            Debug.Log("Recibio daño ");
+            TakeDamage(3);
+        }
     }
     /*void OnCollisionEnter2D(Collision2D collision)
     {

@@ -31,10 +31,11 @@ public class FireNavi : MonoBehaviour
         {
             // 1. ESPERA INICIAL (Opcional, para que no empiece nada más cargar la escena)
             //float timeFire = Random.Range(minR, maxR);
-
+            animator.SetBool("ONFIRE", false);
 
             // 2. INTERMITENCIA (Aviso)
-            float flashDuration = 0.15f;
+            float flashDuration = 0.5f;
+
             for (int i = 0; i < flashLapes; i++)
             {
                 spriteRenderer.material.color = new Color(1f, 0f, 0f, 1f); // (Red, Green, Blue, Alpha)
@@ -42,10 +43,11 @@ public class FireNavi : MonoBehaviour
                 spriteRenderer.material.color = color;
                 yield return new WaitForSeconds(flashDuration);
             }
-
-            // 3. ¡FUEGO!
-            animator.SetTrigger("ON");
+            animator.SetBool("ONFIRE", true);
             yield return new WaitForSeconds(timeWait);
+            // 3. ¡FUEGO!
+            
+            
 
         }
 

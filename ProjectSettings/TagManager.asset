@@ -26,6 +26,7 @@ TagManager:
   - Zona_4_1
   - SpawnMain
   - Rock
+  - Spines
   layers:
   - Default
   - TransparentFX

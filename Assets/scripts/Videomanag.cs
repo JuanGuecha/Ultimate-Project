@@ -14,6 +14,7 @@ public class Videomanag : MonoBehaviour
     [SerializeField] GameObject UIplayer;
 
     [SerializeField] NavMeshAgent Bastet;
+    [SerializeField] GameObject Enemies;
 
 
 
@@ -55,5 +56,6 @@ public class Videomanag : MonoBehaviour
         Bastet.enabled = true;
         dialogo.SetActive(true);
         Time.timeScale = 1;
+        Enemies.SetActive(true);
     }
 }
