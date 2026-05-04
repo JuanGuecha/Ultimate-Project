@@ -8,7 +8,7 @@ public class Videomanag : MonoBehaviour
     [SerializeField] VideoClip video;
 
     [SerializeField] GameObject teleplats;
-    [SerializeField] mummy followplayer;
+    [SerializeField] mummy2 followplayer;
     [SerializeField] GameObject dialogo;
 
     [SerializeField] GameObject UIplayer;
